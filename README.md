@@ -30,7 +30,7 @@ Sie erreichen mich unter der
 0221 1517 326891085
 
 Servicezeiten:
-Mo-Do: 10:00 Uhr bis 13:00 Uhr
+Mo-Do: 11:00 Uhr bis 13:00 Uhr
 Fr: Geschlossen
 Sa+So: Geschlossen
 
