@@ -40,3 +40,6 @@ BITTE BEACHTEN ! ! Zwischen 11:30 Uhr und 12:30 Uhr befinden sich ALLE in der Mi
 
 Falls Sie gerade überlegt haben hier anzurufen... GRATULATIERE ich Ihnen schon einmal
 Sie sind derzeit auf Platz 432 in der Telefonwarteschlange.... bitte haben Sie etwas gedult.
+
+Gerne können Sie auch eine E-Mail schicken, was leider nichts bringt, da das Outlook Projekt
+nicht abgeschlossen wurde....
