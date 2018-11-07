@@ -1,30 +1,32 @@
 # OberstufenProjekt
 Dinge wo ich wirklich mal was machen musste....
 
-Für dieses Projekt gilt eine goldene Regel...
+
+WICHTIG!!!
+FÃ¼r dieses Projekt gilt eine goldene Regel...
 
 Verwende NIEMALS das a-Wort! ! !
 
-Um Missverständnisse zu vermeiden werde ich das Wort hier einmal ausschreiben...
+Um MissverstÃ¤ndnisse zu vermeiden werde ich das Wort hier einmal ausschreiben...
 
 << Arbeit >>
 
-Dieses Wort ist in KEINEM Zusammenhang gültig!
+Dieses Wort ist in KEINEM Zusammenhang gÃ¼ltig!
 NIEMAND hat die Berechtigung dieses Wort zu verwenden!
 Es ist gesetzlich VERBOTEN dieses Wort in einer Konversation zu verwenden, 
-die an jemanden aus dem öffentlichen Dienst gerichtet ist.
+die an jemanden aus dem Ã¶ffentlichen Dienst gerichtet ist.
 
-WARNUNG! Das Projekt darf unter KEINEN Umständen erfolgreich abgescchlossen werden!
-Projekte des öffentlichen Dienstes MÜSSEN unvollständig und/oder abgebrochen und/oder 
-fehlerhaft "beendet" werden. Aufkommende Kosten als Folge des nicht beendeten Projektes trägt
+WARNUNG! Das Projekt darf unter KEINEN UmstÃ¤nden erfolgreich abgescchlossen werden!
+Projekte des Ã¶ffentlichen Dienstes MÃœSSEN unvollstÃ¤ndig und/oder abgebrochen und/oder 
+fehlerhaft "beendet" werden. Aufkommende Kosten als Folge des nicht beendeten Projektes trÃ¤gt
 der Steuerzahler.
 
-Ein Verstoß gegen die oben genannten Regeln kann mit bis zu 300.000€ Strafrechtlich verfolgt werden!
+Ein VerstoÃŸ gegen die oben genannten Regeln kann mit bis zu 300.000â‚¬ Strafrechtlich verfolgt werden!
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-HINWEIS: Sollten Fragen bezüglich der oben genannten Regeln auftreten können sie sich gerne
-bei mir telefonisch über genauere Hintergründe erkundigen. Bitte beachten Sie die Servicezeiten!
+HINWEIS: Sollten Fragen bezÃ¼glich der oben genannten Regeln auftreten kÃ¶nnen sie sich gerne
+bei mir telefonisch Ã¼ber genauere HintergrÃ¼nde erkundigen. Bitte beachten Sie die Servicezeiten!
 
 Sie erreichen mich unter der 
 0221 1517 326891085
@@ -38,8 +40,8 @@ BITTE BEACHTEN ! ! Zwischen 11:30 Uhr und 12:30 Uhr befinden sich ALLE in der Mi
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-Falls Sie gerade überlegt haben hier anzurufen... GRATULATIERE ich Ihnen schon einmal
+Falls Sie gerade Ã¼berlegt haben hier anzurufen... GRATULATIERE ich Ihnen schon einmal
 Sie sind derzeit auf Platz 432 in der Telefonwarteschlange.... bitte haben Sie etwas gedult.
 
-Gerne können Sie auch eine E-Mail schicken, was leider nichts bringt, da das Outlook Projekt
+Gerne kÃ¶nnen Sie auch eine E-Mail schicken, was leider nichts bringt, da das Outlook Projekt
 nicht abgeschlossen wurde....
