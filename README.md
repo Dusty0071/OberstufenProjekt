@@ -16,10 +16,20 @@ NIEMAND hat die Berechtigung dieses Wort zu verwenden!
 Es ist gesetzlich VERBOTEN dieses Wort in einer Konversation zu verwenden, 
 die an jemanden aus dem öffentlichen Dienst gerichtet ist.
 
+Weiterhin gilt es folgende Wörter zu VERMEIDEN (NICHT VERWENDEN!!!):
+-Tätigkeit
+-Ausübung
+-Leistung
+-Tun
+-Beschäftigung
+-Verrichtung
+-Engagement
+-Motivation
+
 WARNUNG! Das Projekt darf unter KEINEN Umständen erfolgreich abgescchlossen werden!
 Projekte des öffentlichen Dienstes MÜSSEN unvollständig und/oder abgebrochen und/oder 
-fehlerhaft "beendet" werden. Aufkommende Kosten als Folge des nicht beendeten Projektes trägt
-der Steuerzahler.
+fehlerhaft "beendet" werden. Aufkommende Kosten als Folge des nicht beendeten/unvollständigen/fehlerhaften Projektes trägt
+der Steuerzahler. nach der Feststellung der Unausführbarkeit des Projektes müssen sich ALLE Beteiligten an dem Projekt UMGEHEND zum Metzger begeben um sich dort für den nichterfolg (also Erfolg) mit Schnitzelbrötchen, Mettbrötchen, Brugern und weiteren Produkten belohnen. Nach einer längeren Pause (mind. länger als 60 Minuten) wird eine externer Dienstleister für das Prjekt gesucht und eingestellt.
 
 Ein Verstoß gegen die oben genannten Regeln kann mit bis zu 300.000€ Strafrechtlich verfolgt werden!
 
