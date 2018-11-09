@@ -20,6 +20,15 @@
 
 ## Gruppen
 - 4 Gruppen
+- 4 Themen
+  - Entwicklung einer Mitfahrer-Datenbank
+    - FN
+  - Lehrerkalender
+    - LN
+  - Raumberteuuer APP
+    - FE
+  - Entschlussfassungstool
+    - FR LE
 - Rollenverteilung
 
 ## Projektarbeit
