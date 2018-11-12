@@ -1,0 +1,150 @@
+/**
+ * @author JoomlaShine.com Team
+ * @copyright JoomlaShine.com
+ * @link joomlashine.com
+ * @package JSN ImageShow
+ * @version $Id: style.css 6505 2011-05-31 11:01:31Z trungnq $
+ * @license GNU/GPL v2 http://www.gnu.org/licenses/gpl-2.0.html
+ */
+ .jsnis-container {
+    outline: none;
+    text-align: center;
+  }
+  
+  .jsnis-gallery{
+      outline: none;
+  }
+  .jsnis-altcontent{
+      display: none;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+  }
+  .jsnis-seocontent{
+      display:none;
+  }
+  .no-flash{
+      display:block;
+  }
+  .no-swfobj-flash{
+      display:none;
+  }
+  /* SLIDE GALLERY */
+  #jsnis-slide-gallery{
+      width:100%;
+      position:relative;
+      overflow:hidden;
+  }
+  div.jsnis-slide-gallery img.slide {
+      float:left;
+      position:absolute;
+      left:0px;
+      opacity:0; 
+      filter: alpha(opacity = 0);
+  }
+  div.jsnis-slide-nav,
+  div.jsnis-slide-controller{
+      display:none;
+  }
+  div.jsnis-slide-nav,
+  div.jsnis-slide-controller,
+  div.jsnis-slide-loading{
+      position:absolute;
+      cursor:pointer;
+      background:#000;
+      z-index:1;
+      opacity:0.7; 
+      filter: alpha(opacity = 70);
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+  }
+  div.jsnis-slide-nav-right{
+      -moz-border-radius: 5px 0px 0px 5px;
+      border-radius: 5px 0px 0px 5px;
+  }
+  div.jsnis-slide-nav-left{
+      -moz-border-radius: 0px 5px 5px 0px;
+      border-radius: 0px 5px 5px 0px;
+  }
+  div.jsnis-slide-controller{
+      -moz-border-radius: 5px 5px 0px 0px;
+      border-radius: 5px 5px 0px 0px;
+  }
+  div.jsnis-slide-nav img,
+  div.jsnis-slide-controller img,
+  div.jsnis-slide-loading img{
+      max-width: 50px;
+      max-height: 50px;
+      width:100%;
+      margin:auto;
+      display:block;
+  }
+  div.jsnis-slide-loading{
+      display:none;
+  }
+  div.jsnis-slide-controller-pause{
+      display:none;
+  }
+  /* SLIDE GALLERY */
+  
+  #main {
+      padding:0 !important;
+  }
+  
+  body.contentpane {
+      margin:0 !important;
+  }
+  div.jsn-missing-data-alert-box  {
+      border: 2px solid #FF9900;
+      height: 80px;
+      width: 190px;
+      margin: 20px auto;	
+      background-color: #333333;
+  }
+  
+  div.jsn-missing-data-alert-box  .header {
+      height: 50px;
+      display: block;
+  }
+  div.jsn-missing-data-alert-box  .footer {
+      height: 30px;
+      display: block;
+      background-color: #000;
+  }
+  div.jsn-missing-data-alert-box  .header span.icon-warning {
+      background: url(../images/icon-uni-32/icon-text-alert.png) no-repeat; 
+      width: 32px;
+      height: 32px;
+      float:left;
+      margin: 8px;
+  }
+  div.jsn-missing-data-alert-box  .header span.message
+  {
+      padding-top: 8px;
+      color: #FFF;
+      text-align: center;
+      display:block;
+  }
+  div.jsn-missing-data-alert-box  .footer span.link-to-more
+  {
+      padding-top: 8px;
+      text-align: center;
+      display:block;
+  }
+  div.jsn-missing-data-alert-box  .footer span.link-to-more a
+  {
+      color: #FFF;
+      text-decoration: none;
+      display: block;
+      height: 25px;
+  }
+  div.jsn-missing-data-alert-box  .footer span.link-to-more a:hover
+  {
+      text-decoration: none;
+      background: none !important;
+  }
+  div.jsn-missing-data-alert-box  .footer:hover
+  {
+      cursor: pointer;
+      background-color:#FF9900;
+  }
