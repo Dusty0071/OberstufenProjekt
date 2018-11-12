@@ -1,8 +1,0 @@
-BPlaced
-Benutzername: fia63kaden
-Passwort: 294526
-
-
-MySQL
-Benutzername: fia63kaden_oli
-Passwort: 294526
