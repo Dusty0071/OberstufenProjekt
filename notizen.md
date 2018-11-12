@@ -1,10 +1,10 @@
-# Kickoff:
+﻿# Kickoff:
 
 ## Allgemeines
 - Zeiten und Räume nach Stundenplan
   - Montag 9:35 Uhr
   - sonst ab 7:45
-- Anwesenheitspflicht 8 Ustd./Tag
+- Abwesenheitspflicht 8 Ustd./Tag
 - Wie Abschlussprojekt nur als Guppe
 - AWE + PM + QM + Präsentation + Fachgespräch
 - Wertung nach IHK Schema
