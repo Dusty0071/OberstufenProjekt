@@ -1,0 +1,5 @@
+.loginbox input[type="text"],
+.loginbox input[type="password"]{
+  width:100%;
+  margin-bottom: 10px;
+}
