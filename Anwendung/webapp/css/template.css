@@ -77,7 +77,7 @@ blockquote {
 	min-height: 45px;
 	font-style: italic;
 	padding-left: 60px;
-	background: url(../images/icons/icon-text-blockquote.png) no-repeat top left;
+	background: url(../img/icon-text-blockquote.png) no-repeat top left;
 }
 blockquote p {
 	font-size: 1em;
@@ -553,7 +553,7 @@ div[id*=jsn-pos-stick-right] {
 	padding-top: 3px;
 	position: relative;
 	border-bottom: 5px solid #404040;
-	background: #595959 url(../images/backgrounds/bg-promo.jpg) left top repeat-x;
+	background: #595959 url(../img/bg-promo.jpg) left top repeat-x;
 }
 
 #jsn-content-top h3.jsn-moduletitle {
@@ -576,17 +576,17 @@ div[id*=jsn-pos-stick-right] {
 	z-index: 87\0;
 }
 div.jsn-hasleft #jsn-content_inner {
-	background: #E5E5E5 url(../images/backgrounds/bg-leftside.png) right top repeat-y;
+	background: #E5E5E5 url(../img/bg-leftside.png) right top repeat-y;
 }
 div.jsn-hasright #jsn-content_inner2 {
-	background: #E5E5E5 url(../images/backgrounds/bg-rightside.png) left top repeat-y;
+	background: #E5E5E5 url(../img/bg-rightside.png) left top repeat-y;
 }
 div.jsn-hasright #jsn-content_inner2.jsn-flip {
-    background-image: url("../images/backgrounds/bg-leftside.png");
+    background-image: url("../img/bg-leftside.png");
     background-position: right top;
 }
 div.jsn-hasleft #jsn-content_inner.jsn-flip {
-   background-image: url("../images/backgrounds/bg-rightside.png");
+   background-image: url("../img/bg-rightside.png");
     background-position: left top;
 }
 div.jsn-hasinnerleft #jsn-content_inner4 {
@@ -630,7 +630,7 @@ div.jsn-hasinnerright #jsn-content_inner6 {
 #jsn-pos-banner,
 #jsn-usermodules2,
 #jsn-pos-mainbody-bottom {
-	background-image: url(../images/dot.png);
+	background-image: url(../img/dot.png);
 	background-repeat: repeat-x;
 }
 #jsn-pos-breadcrumbs,
@@ -660,7 +660,7 @@ div.jsn-hasinnerright #jsn-content_inner6 {
 	position: relative;
 	border-top: 1px solid #ffffff;
 	border-bottom: 6px solid #404040;
-	background: #d9d9d9 url(../images/backgrounds/bg-usermodules3.png) left top repeat-x;
+	background: #d9d9d9 url(../img/bg-usermodules3.png) left top repeat-x;
 	box-shadow: inset 0 1px #FFF;
 }
 #jsn-pos-content-bottom + #jsn-usermodules3 {
@@ -808,7 +808,7 @@ p.text-dropcap:first-child:first-letter {
 hr.line-dots {
 	border: none;
 	padding: 0.5em 0;
-	background: url(../images/dot.png) left center repeat-x;
+	background: url(../img/dot.png) left center repeat-x;
 }
 hr.line-solid {}
 /* ----- ACTION LINK ----- */
@@ -970,7 +970,7 @@ div.jsn-modulecontainer ul.menu-mainmenu ul ul {
 /* ----- PARENT ITEMS / ADD ARROW TO ITEMS HAVE SUBLEVEL ----- */
 div.jsn-modulecontainer ul.menu-mainmenu ul li.parent > a {
 	padding-right: 16px;
-	background: url(../images/icons/icon-arrow-white.png) 98% center no-repeat;
+	background: url(../img/icon-arrow-white.png) 98% center no-repeat;
 }
 /* ----- HOVER STATE ----- */
 div.jsn-modulecontainer ul.menu-mainmenu li:hover > a {
@@ -1026,7 +1026,7 @@ ul.menu-treemenu li a span {
 }
 ul.menu-treemenu li > a > span {
 	padding-left: 18px;
-	background: url(../images/icons/icons-base.png) left -343px no-repeat;
+	background: url(../img/icons-base.png) left -343px no-repeat;
 }
 div[class*="box-"] ul.menu-treemenu {
 	margin: 5px -15px -15px;
@@ -1159,15 +1159,15 @@ div[class*="solid-"] div.jsn-modulecontainer_inner {
 }
 /* ----- BOX YELLOW STYLE ----- */
 div.box-yellow div.jsn-modulecontainer_inner {
-	background: #FEFEF5 url(../images/module-styles/box-yellow.png) left bottom repeat-x;
+	background: #FEFEF5 url(../img/box-yellow.png) left bottom repeat-x;
 }
 /* ----- BOX GREY STYLE ----- */
 div.box-grey div.jsn-modulecontainer_inner {
-	background: #323232 url(../images/module-styles/box-grey.png) left bottom repeat-x;
+	background: #323232 url(../img/box-grey.png) left bottom repeat-x;
 }
 /* ----- RICHBOX STYLE ----- */
 div.richbox-1 div.jsn-modulecontainer_inner {
-	background: #323232 url(../images/module-styles/richbox-1.png) left bottom repeat-x;
+	background: #323232 url(../img/richbox-1.png) left bottom repeat-x;
 }
 /* ----- CUSTOM BOX STYLE IN SPECIFIC POSITION ----- */
 #jsn-content-top div[class*="box-"],
@@ -1428,7 +1428,7 @@ body.contentpane div.com-content {
 .createdate,
 .publishdate {
 	padding-left: 22px;
-	background-image: url(../images/icons/icons-base.png);
+	background-image: url(../img/icons-base.png);
 	background-repeat: no-repeat;
 }
 .author {
@@ -1462,7 +1462,7 @@ ul.jsn-article-tools li a {
 	display: block;
 	height: 16px;
 	width: 16px;
-	background: url(../images/icons/icons-base.png) left top no-repeat;
+	background: url(../img/icons-base.png) left top no-repeat;
 }
 ul.jsn-article-tools li a.no-icon {
 	background: none;
@@ -1534,7 +1534,7 @@ table.contenttoc {
 }
 table.contenttoc th {
 	padding: .4em;
-	background: url(../images/dot.png) bottom repeat-x;
+	background: url(../img/dot.png) bottom repeat-x;
 	font-weight: bold;
 	text-align: center;
 }
@@ -1884,7 +1884,7 @@ div.com-user div.default-login {
 	min-width: 25px;
 	min-height: 25px;
 	overflow: visible;
-	background: url(../images/icons/icon-close.png) 0 0 no-repeat;
+	background: url(../img/icon-close.png) 0 0 no-repeat;
 }
 #mailto-window .mailto-close a span {
 	top: -3000px;
@@ -1895,7 +1895,7 @@ div.com-user div.default-login {
 #mailto-window .inputbox {
 	padding: 3px;
 	border: 1px solid #ccc;
-	background: #FFF url(../images/backgrounds/popup-bg.png) repeat-x 0 0;
+	background: #FFF url(../img/popup-bg.png) repeat-x 0 0;
 }
 #mailto-window p {
     margin: 20px 0 8px 0;
@@ -1954,7 +1954,7 @@ span.breadcrumbs span {
 	color: #404040;
 	padding-right: 18px;
 	text-decoration: none;
-	background: url(../images/icons/icon-arrow-black.png) right center no-repeat;
+	background: url(../img/icon-arrow-black.png) right center no-repeat;
 }
 span.breadcrumbs a {
 	padding-left: 8px;
@@ -2003,7 +2003,7 @@ span.breadcrumbs span.current {
 .breadcrumb a,
 .breadcrumb li span {
 	padding: 0 25px 0 0;
-	background: url("../images/icons/icon-arrow-black.png") 95% center no-repeat;
+	background: url("../img/icon-arrow-black.png") 95% center no-repeat;
 }
 .breadcrumb > li > .divider {
 	padding: 0 !important;
@@ -2036,7 +2036,7 @@ form#login-form .icon-arrow-right {
 /* =============== JOOMLA! EXTENSIONS - MOD_SEARCH =============== */
 #jsn-pos-top div.search input#mod-search-searchword {
 	padding: 2px 0 2px 25px;
-	background: #FFF url(../images/icons/icons-base.png) 5px -168px no-repeat;
+	background: #FFF url(../img/icons-base.png) 5px -168px no-repeat;
 }
 /* =============== JOOMLA! EXTENSIONS - MOD_NEWSFLASH =============== */
 .jsn-mod-newsflash.jsn-horizontal-container .jsn-article {
