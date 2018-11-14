@@ -18,7 +18,7 @@ class Lehrer {
     }
 }
 
-class Protokolle {
+class Protokoll {
     public $ID = 0;
     public $Typ = "";
     public $Raum = "";
@@ -42,7 +42,7 @@ class Protokolle {
     }
 
     public function printTable() {
-        echo '<tr>';
+        echo '<tr class="clickable">';
         foreach ($this as $key => $value) {
             echo '<td>'. getString($value) . '</td>';
         }
@@ -124,9 +124,7 @@ function fillObj(&$obj, $row) {
     }
 }
 
-
-
-function Conn(){
+function GetProtokolle(){
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
@@ -137,21 +135,19 @@ function Conn(){
             return false;
         }
 
-        $Lehrer = [];
+        $protokolle = [];
         if($result = $mysqli->query("SELECT * FROM Protokolle")) {
             $i = 0;
             while ($row = $result->fetch_object()){
-                $Lehrer[$i] = new Protokolle($row);
+                $protokolle[$i] = new Protokoll($row);
                 $i++;
             }
         } else {
-            echo 'ERROR at: SELECT * FROM Lehrer\n';
+            echo 'ERROR at: SELECT * FROM Protokolle\n';
             return false;
         }
 
-        printProtokoll($Lehrer);
-
-        return true;
+        return $protokolle;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
@@ -159,15 +155,28 @@ function Conn(){
     }
 }
 
-function printProtokoll($protokoll) {
-    echo '<table class="LinkTable">';
-    foreach($protokoll as $protokollObj => $value) {
+function printProtokolle($protokolle, $newLine = false) {
+    $first = true;
+    $count = 0;
+    $lang = new clsLang();
+    echo '<table id="linkTable">';
+
+    foreach($protokolle as $protokollObj => $value) {
+        if($first) {
+            $first = false;
+            echo '<tr>';
+            foreach ($value as $key => $pValue) {
+                echo '<th>'. $lang->$key . '</th>';
+                $count++;
+            }
+            echo '</tr>';
+        }
         $value->printTable();
+    }
+    if($newLine) {
+        echo '<tr class="clickable"><td colspan="' . $count . '" class="center">+</td></tr>';
     }
     echo '</table>';
 }
-
-
-
 
 ?>

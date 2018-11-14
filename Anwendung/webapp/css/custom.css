@@ -4,17 +4,26 @@
     margin-bottom: 10px;
 }
 
-table.LinkTable {
+table#linkTable {
     border-collapse: collapse;
 }
 
-table.LinkTable,
-.LinkTable th,
-.LinkTable td {
+table#linkTable,
+#linkTable th,
+#linkTable td {
     border: 1px solid black;
 }
 
-.LinkTable th,
-.LinkTable td {
+#linkTable th,
+#linkTable td {
     padding: 5px;
+}
+
+tr:hover.clickable {
+    background-color: rgba(100, 100, 255, 0.3);
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
 }

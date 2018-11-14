@@ -321,8 +321,8 @@ function writeFoot() {
 </div>
 <span>Go to top</span>
 </a>
+<script type="text/javascript" src="js/functions.js"></script>
 </body>
-
 </html>';
 }
 
