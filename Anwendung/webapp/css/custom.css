@@ -1,5 +1,20 @@
 .loginbox input[type="text"],
-.loginbox input[type="password"]{
-  width:100%;
-  margin-bottom: 10px;
+.loginbox input[type="password"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+table.LinkTable {
+    border-collapse: collapse;
+}
+
+table.LinkTable,
+.LinkTable th,
+.LinkTable td {
+    border: 1px solid black;
+}
+
+.LinkTable th,
+.LinkTable td {
+    padding: 5px;
 }

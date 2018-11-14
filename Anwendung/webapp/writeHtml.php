@@ -7,7 +7,7 @@ function wirteHead() {
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="GSO, GSO Köln, GSO Koeln, Georg Simon Ohm, Georg-Simon-Ohm-Berufskolleg, Georg-Simon-Ohm-Berufsschule, Medienschule, Medienberufsschule, Köln, Fachinformatiker, Mediengestalter Bild- und Ton, Informatik, Medientechnik, Fachschule, Fachschule für Technische Informatik, Technikerfachschule, BK13, Informationstechnische Assistenten, ITAs, Berufsfachschule, Berufskolleg, Medienberufskolleg, Medientechnik, Mediengestaltung, Abendschule, Meisterbafög, Erwachsenenweiterbildung, berufliche Weiterbildung, Informatik, Informatiker, staatliche geprüfter Informatiker, Techniker Fachrichtung Informatik Schwerpunkt technische Informatik, Computertechnik, Vollzeit, Teilzeit, Abendschule, abgeschlossene Ausbildung, berufliche Weiterbildung, ohne Gebühren, kostenlos, Alternative zum Studium, Fachhochschulreife, FH-Reife, FHR, AHR, Allgemeine Hochschulreife, Förderung, " />
         <meta name="description" content="Das Georg-Simon-Ohm-Berufskolleg ist das Kölner Berufskolleg für die Bereiche Informations- und Kommunikationstechnik, Medientechnik und Mediengestaltung." />
-        <title>Georg-Simon-Ohm-Berufskolleg in Köln</title>
+        <title>Protokoll-Tool</title>
         <link href="img/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="css/template.css"/>
         <link rel="stylesheet" href="css/style.css"/>
