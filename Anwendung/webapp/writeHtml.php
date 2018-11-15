@@ -107,9 +107,9 @@ function wirteHead() {
                             <span class="jsn-menutitle">Home</span><span class="jsn-menudescription">Start here...</span>	</span>
                             </a>
                           </li>
-                          <li  class="current active first icon-home"><a class="current" href="inhaltsseite.php" title="Dies das" >
+                          <li  class="current active first icon-home"><a class="current" href="admin.php" title="Admin" >
                             <span>
-                            <span class="jsn-menutitle">Inhaltsseite</span><span class="jsn-menudescription">Dies das</span>	</span>
+                            <span class="jsn-menutitle">Admintools</span><span class="jsn-menudescription">Admin</span>	</span>
                             </a>
                           </li>
                         </ul>
@@ -292,6 +292,10 @@ function writeFoot() {
 <script type="text/javascript" src="js/functions.js"></script>
 </body>
 </html>';
+}
+
+function writeAdminForm(){
+  echo "<form method='POST' action='admin.php'><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/></form>";
 }
 
 function easterEgg() {
