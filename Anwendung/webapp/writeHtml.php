@@ -295,7 +295,7 @@ function writeFoot() {
 <h3 class="jsn-moduletitle"><span class="jsn-moduleicon">Werbung</span></h3>
 <div class="jsn-modulecontent">
 <div>
-<p>Hier könnte Ihre Werbung stehen</p>
+<p>Hier könnte Ihre Werbung stehen.</p>
 </div>
 <div class="clearbreak"></div>
 </div>
