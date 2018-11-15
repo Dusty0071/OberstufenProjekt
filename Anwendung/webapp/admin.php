@@ -30,7 +30,8 @@ else if(isset($_POST['pushGruppe'])){
     }
 }
 else{
-    writeAdminForm();
+    $gruppen = GetGruppen();
+    writeAdminForm($gruppen);
 }
 
 writeFoot();
