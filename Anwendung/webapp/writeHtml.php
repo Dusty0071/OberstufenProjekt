@@ -361,7 +361,26 @@ function easterEgg() {
  -->';
 }
 
-function writeProtokollForm($protokoll=null, $writeOnly = true) {
-  echo '';
+function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
+  $Gruppen = GetGruppen();
+  if($new) {
+
+  } else {
+    if($protokoll !== null) {
+
+    } else {
+    }
+  }
+
+  echo '<form action="/">
+    <ul>
+    <select>';
+    foreach($Gruppen as $key => $value) {
+      echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
+    }
+  echo'</select>
+    </ul>
+  </form>';
+
 }
 ?>
