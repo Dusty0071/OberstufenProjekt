@@ -109,6 +109,24 @@ class Gruppe {
     }
 }
 
+class LehrerGruppe {
+    public $GruppenID = 0;
+    public $LehrerID = 0;
+    public $VerteilerMail = "";
+    public $Lehrer; //Lehrer
+    public $Gruppe; // Gruppe
+
+    function __construct($row = null) {
+        fillObj($this, $row);
+    }
+
+    public function print() {
+        foreach ($this as $key => $value) {
+            echo $key . '= ' . $value . '<br>';
+        }
+    }
+}
+
 function getString($val) {
     if(isset($val)) {
         switch (gettype($val)) {
