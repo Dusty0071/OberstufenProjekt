@@ -34,3 +34,9 @@ tr:hover.clickable {
 section.form {
     margin-bottom: 30px;
 }
+
+.success-message {
+    color: #0dd10d;
+    font-size: 20px;
+    font-weight: bold;
+}

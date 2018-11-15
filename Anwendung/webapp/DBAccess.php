@@ -428,7 +428,7 @@ function SaveLehrer($lehrer){
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p>Lehrer gespeichert.</p>';
+            echo '<p class="success-message">Lehrer gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -457,7 +457,7 @@ function SaveGruppe($gruppe){
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p>Gruppe gespeichert.</p>';
+            echo '<p class="success-message">Gruppe gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
