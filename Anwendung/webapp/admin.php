@@ -29,6 +29,11 @@ else if(isset($_POST['pushGruppe'])){
         SaveGruppe($gruppe);
     }
 }
+else if(isset($_POST['pushLehrerGruppe'])){
+    $lehrerGruppe= new LehrerGruppe();
+    $lehrerGruppe -> GruppenID = $_POST['gruppeList'];
+    $lehrerGruppe -> LehrerID = $_POST['lehrerList'];
+}
 
 $gruppen = GetGruppen();
 $lehrer = getAllLehrer();

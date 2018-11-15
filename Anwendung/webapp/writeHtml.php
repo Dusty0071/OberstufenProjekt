@@ -299,11 +299,21 @@ function writeAdminForm($gruppen,$lehrer){
   foreach ($lehrer as $key => $value) {
     echo "<li>".$value->Vorname." ".$value->Nachname."</li>";
   }
-  echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
+  echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='text' name='verteilerGruppe' placeholder='Email Verteiler'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
   foreach ($gruppen as $key => $value) {
     echo "<li>".$value->Name."</li>";
   }
-  echo"</ul></section></form>";
+  echo"</ul></section><section class='from gruppeLehrer'><h4>Lehrer einer Gruppe zuordnen:</h4>";
+  echo "<select name='lehrerList'>";
+  foreach ($lehrer as $key => $value) {
+    echo " <option value=".$value->ID.">".$value->Vorname." ".$value->Nachname."</option>";
+  }	
+  echo "</select>";
+  echo "<select name='gruppeList'>";
+  foreach ($gruppen as $key => $value) {
+    echo " <option value=".$value->ID.">".$value->Name."</option>";
+  }	
+  echo "</select><input type='submit' name='pushLehrerGruppe' value='Speichern'/></section></form>";
 }
 
 function easterEgg() {
