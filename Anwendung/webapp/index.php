@@ -7,7 +7,7 @@ wirteHead();
 writeLogin();
 writeHeadEnd();
 
-echo '<h1>Prtokoll Übersicht</h1>';
+echo '<h1>Protokoll Übersicht</h1>';
 printProtokolle(GetProtokolle(), true);
 
 writeFoot();

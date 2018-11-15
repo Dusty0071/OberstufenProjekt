@@ -15,4 +15,16 @@ class clsLang {
     public $LastEditDate = "Änderungsdatum";
     public $CreateDate = "Erstellungsdatum";
 }
+
+class clsSettings {
+    public $protokollId = "0";
+
+    function __construct() {
+        foreach (get_object_vars($this) as $key => $value) {
+            if(isset($_REQUEST[$key])) {
+                $this->$key = $_REQUEST[$key];
+            }
+        }
+    }
+}
 ?>

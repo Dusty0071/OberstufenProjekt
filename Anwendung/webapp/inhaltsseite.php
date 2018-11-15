@@ -1,15 +1,18 @@
 <?php
 include 'writeHtml.php';
+include 'DBAccess.php';
 
 easterEgg();
 wirteHead();
 writeLogin();
 writeHeadEnd();
 
-echo '<!-- MAIN Content -->
-<h3 class="jsn-moduletitle">Protokolltool und so</h3>
-<h4 class="contentheading ">Subtitle</h4>
-<p>Hier steht bestimmt mal ein ganz interessanter Text</p>';
+$settings = new clsSettings();
+
+if($settings->protokollId !== 0) {
+    printProtokolle([getProtokoll($settings->protokollId)]);
+    writeProtokollForm();
+}
 
 writeFoot();
 ?>

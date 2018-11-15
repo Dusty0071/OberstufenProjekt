@@ -57,50 +57,9 @@ function wirteHead() {
           a.alt_flag:hover {background-image:url("img/alt_flags.png");}
           a.alt_flag img {border:0;}
         </style>
-          <script src="http://www.gso-koeln.de/media/system/js/mootools-core.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/media/system/js/core.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/media/system/js/caption.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/media/system/js/mootools-more.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/components/com_imageshow/assets/js/swfobject.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/components/com_imageshow/assets/js/jsn_is_extultils.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/components/com_imageshow/assets/js/jsn_is_imageshow.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/plugins/system/jsntplframework/assets/joomlashine/js/noconflict.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/plugins/system/jsntplframework/assets/joomlashine/js/utils.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/templates/jsn_epic_pro/js/jsn_template.js" type="text/javascript"></script>
-          <script src="http://www.gso-koeln.de/media/system/js/modal.js" type="text/javascript"></script>
-        <script type="text/javascript">
-          window.addEvent("load", function() {
-                          new JCaption("img.caption");
-                      });
-                          window.addEvent("domready", function(){
-                              JSNISImageShow.alternativeContent();	
-                          });
-                      
-                          JSNTemplate.initTemplate({
-                              templatePrefix			: "jsn_epic_pro_",
-                              templatePath			: "/templates/jsn_epic_pro",
-                              enableRTL				: 0,
-                              enableGotopLink			: 1,
-                              enableMobile			: 1,
-                              enableMobileMenuSticky	: 1,
-                              enableDesktopMenuSticky	: 1,
-                              responsiveLayout		: ["mobile","wide"]
-                          });
-                      
-                  window.addEvent("domready", function() {
-          
-                      SqueezeBox.initialize({});
-                      SqueezeBox.assign($$("a.modal"), {
-                          parse: "rel"
-                      });
-                  });
-            
-        </script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
         <!-- html5.js and respond.min.js for IE less than 9 -->
         <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="/plugins/system/jsntplframework/assets/3rd-party/respond/respond.min.js"></script>
         <![endif]-->
       </head>
       <body id="jsn-master" class="jsn-textstyle-business jsn-color-blue jsn-direction-ltr jsn-responsive jsn-mobile jsn-joomla-25  jsn-com-content jsn-view-featured jsn-itemid-435 jsn-homepage">
@@ -160,12 +119,6 @@ function wirteHead() {
                     </div>
                   </div>
                 </div>
-                <span id="jsn-desktopswitch">
-                <a href="#" onclick="javascript: JSNUtils.setTemplateAttribute("jsn_epic_pro_","mobile","no"); return false;"></a>
-                </span>
-                <span id="jsn-mobileswitch">
-                <a href="#" onclick="javascript: JSNUtils.setTemplateAttribute("jsn_epic_pro_","mobile","yes"); return false;"></a>
-                </span>
                 <div class="clearbreak"></div>
               </div>
               <div id="jsn-content-top" class="jsn-haspromoright ">
@@ -387,5 +340,9 @@ function easterEgg() {
                            MMMMM?                                            
                             MMM. 
  -->';
+}
+
+function writeProtokollForm($protokoll=null, $writeOnly = true) {
+  echo '';
 }
 ?>

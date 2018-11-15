@@ -26,6 +26,8 @@ class Protokoll {
     public $LastEditUser = "";
     public $LastEditDate; //DateTime
     public $CreateDate; //DateTime
+    public $TOPs = []; //Array(TOP)
+    public $ProtokollLehrer = []; //Array(ProtokollLehrer)
     
     function __construct($row = null) {
         $this->KonferenzDatum = new DateTime("0000-01-01");
@@ -44,9 +46,51 @@ class Protokoll {
     public function printTable() {
         echo '<tr class="clickable">';
         foreach ($this as $key => $value) {
-            echo '<td>'. getString($value) . '</td>';
+            $sValue = getString($value);
+            if($sValue !== null) {
+                echo '<td>'. getString($value) . '</td>';
+            }
         }
         echo '</tr>';
+    }
+}
+
+class TOP {
+    public $ID = 0;
+    public $Name = "";
+    public $Beschreibung = "";
+    public $Beschluss = "";
+    public $Dafuer = 0;
+    public $Dagegen = 0;
+    public $Enthalten = 0;
+
+    function __construct($row = null) {
+        fillObj($this, $row);
+    }
+
+    public function print() {
+        foreach ($this as $key => $value) {
+            echo $key . '= ' . $value . '<br>';
+        }
+    }
+}
+
+class ProtokollLehrer {
+    public $ProtokollID = 0;
+    public $LehrerID = 0;
+    public $istModerator = false;
+    public $istProtokollant = false;
+    public $istAnwesend = false;
+    public $Lehrer; //Lehrer
+
+    function __construct($row = null) {
+        fillObj($this, $row);
+    }
+
+    public function print() {
+        foreach ($this as $key => $value) {
+            echo $key . '= ' . $value . '<br>';
+        }
     }
 }
 
@@ -68,6 +112,7 @@ function getString($val) {
                 }
                 break;
             case "array":
+                return null;
             case "resource":
             // von PHP 7.2.0 an
             case "resource (closed)":
@@ -166,8 +211,10 @@ function printProtokolle($protokolle, $newLine = false) {
             $first = false;
             echo '<tr>';
             foreach ($value as $key => $pValue) {
-                echo '<th>'. $lang->$key . '</th>';
-                $count++;
+                if(isset($lang->$key)) {
+                    echo '<th>'. $lang->$key . '</th>';
+                    $count++;
+                }
             }
             echo '</tr>';
         }
@@ -177,6 +224,45 @@ function printProtokolle($protokolle, $newLine = false) {
         echo '<tr class="clickable"><td colspan="' . $count . '" class="center">+</td></tr>';
     }
     echo '</table>';
+}
+
+function getProtokoll($ID) {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        if($result = $mysqli->query("SELECT * FROM Protokolle  WHERE ID = " . $ID . "")) {
+            while ($row = $result->fetch_object()){
+                $protokoll = new Protokoll($row);
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Protokolle WHERE ID = ' . $ID . '\n';
+            return false;
+        }
+
+        $i = 0;
+        if($result = $mysqli->query("SELECT * FROM TOPs  WHERE ProtokollID = " . $ID . "")) {
+            while ($row = $result->fetch_object()){
+                $protokoll->$TOPs[$i] = new TOP($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Protokolle WHERE ID = ' . $ID . '\n';
+            return false;
+        }
+
+        return $protokoll;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
 }
 
 ?>
