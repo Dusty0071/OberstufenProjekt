@@ -294,8 +294,26 @@ function writeFoot() {
 </html>';
 }
 
-function writeAdminForm(){
-  echo "<form method='POST' action='admin.php'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/></section></form>";
+function writeAdminForm($gruppen,$lehrer){
+  echo "<form id='jumptoform' method='POST' action='admin.php#jumptoform'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/><ul>";
+  foreach ($lehrer as $key => $value) {
+    echo "<li>".$value->Vorname." ".$value->Nachname."</li>";
+  }
+  echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='text' name='verteilerGruppe' placeholder='Email Verteiler'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
+  foreach ($gruppen as $key => $value) {
+    echo "<li>".$value->Name."</li>";
+  }
+  echo"</ul></section><section class='from gruppeLehrer'><h4>Lehrer einer Gruppe zuordnen:</h4>";
+  echo "<select name='lehrerList'>";
+  foreach ($lehrer as $key => $value) {
+    echo " <option value=".$value->ID.">".$value->Vorname." ".$value->Nachname."</option>";
+  }	
+  echo "</select>";
+  echo "<select name='gruppeList'>";
+  foreach ($gruppen as $key => $value) {
+    echo " <option value=".$value->ID.">".$value->Name."</option>";
+  }	
+  echo "</select><input type='submit' name='pushLehrerGruppe' value='Speichern'/></section></form>";
 }
 
 function easterEgg() {
@@ -361,7 +379,37 @@ function easterEgg() {
  -->';
 }
 
-function writeProtokollForm($protokoll=null, $writeOnly = true) {
-  echo '';
+function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
+  $Gruppen = GetGruppen();
+  $Lehrer = GetAllLehrer();
+  var_dump($Gruppen);
+  if($new) {
+
+  } else {
+    if($protokoll !== null) {
+
+    } else {
+    }
+  }
+
+  echo '<form action="/">
+    <label for="Typ">Titel</label>
+    <input type="text" name="Typ" value="' . $protokoll->Typ . '">
+
+    <label for="Gruppe">Gruppe</label>
+    <select name="Gruppe">';
+      echo '<option value="0">Benutzerdefiniert</option>';
+      foreach($Gruppen as $key => $value) {
+        echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
+      }
+  echo'</select>
+    <div style="overflow: scroll; width: 200px; height: 200px;">';
+    foreach($Lehrer as $key => $value) {
+      echo '<input type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '<br>';
+    }
+      
+  echo'</div>
+  </form>';
+
 }
 ?>

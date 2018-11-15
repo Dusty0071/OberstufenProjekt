@@ -10,8 +10,8 @@ writeHeadEnd();
 $settings = new clsSettings();
 
 if($settings->protokollId !== 0) {
-    printProtokolle([getProtokoll($settings->protokollId)]);
-    writeProtokollForm();
+    highlight_string("<?php\n\getProtokoll($settings->protokollId) =\n" . var_export(getProtokoll($settings->protokollId), true) . ";\n?>");
+    writeProtokollForm(getProtokoll($settings->protokollId), false);
 }
 
 writeFoot();

@@ -12,7 +12,7 @@ echo '<h1>Admin Tools</h1>';
 if(isset($_POST['pushLehrer'])){
 
     // echo"<p>Lehrer angelegt</p>";
-    if(isset($_POST['vNameLehrer']) && isset($_POST['nNameLehrer']) && isset($_POST['emailLehrer'])){
+    if(!empty($_POST['vNameLehrer']) && !empty($_POST['nNameLehrer']) && !empty($_POST['emailLehrer'])){
         $lehrer = new Lehrer();
         $lehrer -> ID = -1;
         $lehrer -> Vorname = $_POST['vNameLehrer'];
@@ -22,13 +22,23 @@ if(isset($_POST['pushLehrer'])){
     }
 }
 else if(isset($_POST['pushGruppe'])){
-    if(isset($_POST['nameGruppe'])){
-        
+    if(!empty($_POST['nameGruppe'])){
+        $gruppe = new Gruppe();
+        $gruppe -> ID = -1;
+        $gruppe -> Name = $_POST['nameGruppe'];
+        SaveGruppe($gruppe);
     }
 }
-else{
-    writeAdminForm();
+else if(isset($_POST['pushLehrerGruppe'])){
+    $lehrerGruppe= new LehrerGruppe();
+    $lehrerGruppe -> GruppenID = $_POST['gruppeList'];
+    $lehrerGruppe -> LehrerID = $_POST['lehrerList'];
 }
+
+$gruppen = GetGruppen();
+$lehrer = getAllLehrer();
+writeAdminForm($gruppen,$lehrer);
+
 
 writeFoot();
 ?>

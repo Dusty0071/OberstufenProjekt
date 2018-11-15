@@ -94,6 +94,39 @@ class ProtokollLehrer {
     }
 }
 
+class Gruppe {
+    public $ID = 0;
+    public $Name = "";
+
+    function __construct($row = null) {
+        fillObj($this, $row);
+    }
+
+    public function print() {
+        foreach ($this as $key => $value) {
+            echo $key . '= ' . $value . '<br>';
+        }
+    }
+}
+
+class LehrerGruppe {
+    public $GruppenID = 0;
+    public $LehrerID = 0;
+    public $VerteilerMail = "";
+    public $Lehrer; //Lehrer
+    public $Gruppe; // Gruppe
+
+    function __construct($row = null) {
+        fillObj($this, $row);
+    }
+
+    public function print() {
+        foreach ($this as $key => $value) {
+            echo $key . '= ' . $value . '<br>';
+        }
+    }
+}
+
 function getString($val) {
     if(isset($val)) {
         switch (gettype($val)) {
@@ -169,6 +202,38 @@ function fillObj(&$obj, $row) {
     }
 }
 
+
+function GetGruppen() {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Gruppen = [];
+        if($result = $mysqli->query("SELECT * FROM Gruppen")) {
+            $i = 0;
+            while ($row = $result->fetch_object()){
+                $Gruppen[$i] = new Gruppe($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Gruppen\n';
+            return false;
+        }
+
+        return $Gruppen;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
 function GetProtokolle(){
     try {
         //connect to Database
@@ -184,7 +249,7 @@ function GetProtokolle(){
         if($result = $mysqli->query("SELECT * FROM Protokolle")) {
             $i = 0;
             while ($row = $result->fetch_object()){
-                $protokolle[$i] = new Protokoll($row);
+                $protokolle[$i] = getProtokoll($row->ID);
                 $i++;
             }
         } else {
@@ -249,15 +314,97 @@ function getProtokoll($ID) {
         $i = 0;
         if($result = $mysqli->query("SELECT * FROM TOPs  WHERE ProtokollID = " . $ID . "")) {
             while ($row = $result->fetch_object()){
-                $protokoll->$TOPs[$i] = new TOP($row);
+                $protokoll->TOPs[$i] = new TOP($row);
                 $i++;
             }
         } else {
-            echo 'ERROR at: SELECT * FROM Protokolle WHERE ID = ' . $ID . '\n';
+            echo 'ERROR at: SELECT * FROM TOPs WHERE ProtokollID = ' . $ID . '\n';
+            return false;
+        }
+
+        if($result = $mysqli->query("SELECT * FROM protokollLehrer  WHERE ProtokollID = " . $ID . "")) {
+            while ($row = $result->fetch_object()){
+                $protokoll->ProtokollLehrer[$i] = new ProtokollLehrer($row);
+                if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer  WHERE ID = " . $protokoll->ProtokollLehrer[$i]->LehrerID . "")) {
+                    $j = 0;
+                    while ($rowLehrer = $resultLehrer->fetch_object()){
+                        $protokoll->ProtokollLehrer[$i]->Lehrer[$j] = new Lehrer($rowLehrer);
+                        $j++;
+                    }
+                } else {
+                    echo 'ERROR at: SELECT * FROM Lehrer WHERE ID = ' . $protokoll->ProtokollLehrer[$i]->LehrerID . '\n';
+                    return false;
+                }
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM protokollLehrer WHERE ProtokollID = ' . $ID . '\n';
             return false;
         }
 
         return $protokoll;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
+function getAllLehrer() {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Lehrer = [];
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer")) {
+            $j = 0;
+            while ($rowLehrer = $resultLehrer->fetch_object()){
+                $Lehrer[$j] = new Lehrer($rowLehrer);
+                $j++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Lehrer\n';
+            return false;
+        }
+
+        return $Lehrer;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
+function GetLehrer($ID){
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Lehrer = [];
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer  WHERE ID = " . $protokoll->ProtokollLehrer[$i]->LehrerID . "")) {
+            $j = 0;
+            while ($rowLehrer = $resultLehrer->fetch_object()){
+                $Lehrer[$j] = new Lehrer($rowLehrer);
+                $j++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Lehrer WHERE ID = ' . $protokoll->ProtokollLehrer[$i]->LehrerID . '\n';
+            return false;
+        }
+
+        return $protokolle;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
@@ -281,7 +428,7 @@ function SaveLehrer($lehrer){
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p>Lehrer gespeichert.</p>';
+            echo '<p class="success-message">Lehrer gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -295,7 +442,32 @@ function SaveLehrer($lehrer){
 }
 
 function SaveGruppe($gruppe){
-    
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($lehrer->ID > 0){
+            $query ="UPDATE Gruppen SET Name='".$gruppe->Name."' WHERE ID = ".$gruppe->ID;
+        }
+        else{
+            $query ="INSERT INTO Gruppen (Name) VALUES('".$gruppe->Name."')";
+        }
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p class="success-message">Gruppe gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
 }
 
 ?>
