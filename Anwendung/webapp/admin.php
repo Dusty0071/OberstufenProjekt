@@ -21,6 +21,11 @@ if(isset($_POST['pushLehrer'])){
         SaveLehrer($lehrer);
     }
 }
+else if(isset($_POST['pushGruppe'])){
+    if(isset($_POST['nameGruppe'])){
+        
+    }
+}
 else{
     writeAdminForm();
 }

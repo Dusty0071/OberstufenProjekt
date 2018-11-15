@@ -294,4 +294,8 @@ function SaveLehrer($lehrer){
     }
 }
 
+function SaveGruppe($gruppe){
+    
+}
+
 ?>
