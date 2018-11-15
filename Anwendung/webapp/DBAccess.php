@@ -265,4 +265,13 @@ function getProtokoll($ID) {
     }
 }
 
+function SaveLehrer($lehrer){
+    if($lehrer->ID > 0){
+        // UPDATE 
+    }
+    else{
+        // INSERT
+    }
+}
+
 ?>
