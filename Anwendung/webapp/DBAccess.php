@@ -249,11 +249,21 @@ function getProtokoll($ID) {
         $i = 0;
         if($result = $mysqli->query("SELECT * FROM TOPs  WHERE ProtokollID = " . $ID . "")) {
             while ($row = $result->fetch_object()){
-                $protokoll->$TOPs[$i] = new TOP($row);
+                $protokoll->TOPs[$i] = new TOP($row);
                 $i++;
             }
         } else {
-            echo 'ERROR at: SELECT * FROM Protokolle WHERE ID = ' . $ID . '\n';
+            echo 'ERROR at: SELECT * FROM TOPs WHERE ProtokollID = ' . $ID . '\n';
+            return false;
+        }
+
+        if($result = $mysqli->query("SELECT * FROM protokollLehrer  WHERE ProtokollID = " . $ID . "")) {
+            while ($row = $result->fetch_object()){
+                $protokoll->ProtokollLehrer[$i] = new ProtokollLehrer($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM protokollLehrer WHERE ProtokollID = ' . $ID . '\n';
             return false;
         }
 
