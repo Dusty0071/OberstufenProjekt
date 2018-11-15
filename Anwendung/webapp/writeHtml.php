@@ -294,8 +294,12 @@ function writeFoot() {
 </html>';
 }
 
-function writeAdminForm($gruppen){
-  echo "<form method='POST' action='admin.php'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
+function writeAdminForm($gruppen,$lehrer){
+  echo "<form id='jumptoform' method='POST' action='admin.php#jumptoform'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/><ul>";
+  foreach ($lehrer as $key => $value) {
+    echo "<li>".$value->Vorname." ".$value->Nachname."</li>";
+  }
+  echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
   foreach ($gruppen as $key => $value) {
     echo "<li>".$value->Name."</li>";
   }

@@ -29,10 +29,11 @@ else if(isset($_POST['pushGruppe'])){
         SaveGruppe($gruppe);
     }
 }
-else{
-    $gruppen = GetGruppen();
-    writeAdminForm($gruppen);
-}
+
+$gruppen = GetGruppen();
+$lehrer = getAllLehrer();
+writeAdminForm($gruppen,$lehrer);
+
 
 writeFoot();
 ?>
