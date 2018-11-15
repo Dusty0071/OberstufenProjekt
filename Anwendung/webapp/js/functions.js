@@ -3,7 +3,6 @@
 })();
 
 function TableFormatting() {
-    //inhaltsseite.php?protokollid=
     var table = document.getElementById("linkTable");
     if (table) {
         var rows = table.getElementsByTagName("tr");
