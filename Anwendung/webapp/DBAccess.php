@@ -364,7 +364,32 @@ function SaveLehrer($lehrer){
 }
 
 function SaveGruppe($gruppe){
-    
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($lehrer->ID > 0){
+            $query ="UPDATE Gruppen SET Name='".$gruppe->Name."' WHERE ID = ".$gruppe->ID;
+        }
+        else{
+            $query ="INSERT INTO Gruppen (Name) VALUES('".$gruppe->Name."')";
+        }
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p>Gruppe gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
 }
 
 ?>

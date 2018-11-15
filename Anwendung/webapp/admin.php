@@ -23,7 +23,10 @@ if(isset($_POST['pushLehrer'])){
 }
 else if(isset($_POST['pushGruppe'])){
     if(isset($_POST['nameGruppe'])){
-        
+        $gruppe = new Gruppe();
+        $gruppe -> ID = -1;
+        $gruppe -> Name = $_POST['nameGruppe'];
+        SaveGruppe($gruppe);
     }
 }
 else{
