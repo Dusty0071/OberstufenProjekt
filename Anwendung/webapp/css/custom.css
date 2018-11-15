@@ -19,8 +19,12 @@ table#linkTable,
     padding: 5px;
 }
 
+tr:nth-child(even):not(:last-child).clickable {
+    background-color: thistle;
+}
+
 tr:hover.clickable {
-    background-color: rgba(100, 100, 255, 0.3);
+    background-color: rgba(100, 100, 255, 0.3)!important;
     cursor: pointer;
 }
 
