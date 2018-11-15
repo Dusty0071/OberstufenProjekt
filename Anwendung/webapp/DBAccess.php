@@ -208,7 +208,7 @@ function GetGruppen() {
             return false;
         }
 
-        return $protokolle;
+        return $Gruppen;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
