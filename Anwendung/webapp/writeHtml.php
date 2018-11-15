@@ -295,7 +295,7 @@ function writeFoot() {
 }
 
 function writeAdminForm(){
-  echo "<form method='POST' action='admin.php'><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/></form>";
+  echo "<form method='POST' action='admin.php'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/></section></form>";
 }
 
 function easterEgg() {

@@ -31,3 +31,6 @@ tr:hover.clickable {
 .center {
     text-align: center;
 }
+section.form {
+    margin-bottom: 30px;
+}
