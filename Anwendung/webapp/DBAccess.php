@@ -208,15 +208,13 @@ function GetGruppen() {
             return false;
         }
 
-        return $protokolle;
+        return $Gruppen;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
         $mysqli->close();
     }
 }
-
-
 
 function GetProtokolle(){
     try {
@@ -327,6 +325,68 @@ function getProtokoll($ID) {
         }
 
         return $protokoll;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
+function getAllLehrer() {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Lehrer = [];
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer")) {
+            $j = 0;
+            while ($rowLehrer = $resultLehrer->fetch_object()){
+                $Lehrer[$j] = new Lehrer($rowLehrer);
+                $j++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Lehrer\n';
+            return false;
+        }
+
+        return $Lehrer;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
+function GetLehrer($ID){
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Lehrer = [];
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer  WHERE ID = " . $protokoll->ProtokollLehrer[$i]->LehrerID . "")) {
+            $j = 0;
+            while ($rowLehrer = $resultLehrer->fetch_object()){
+                $Lehrer[$j] = new Lehrer($rowLehrer);
+                $j++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Lehrer WHERE ID = ' . $protokoll->ProtokollLehrer[$i]->LehrerID . '\n';
+            return false;
+        }
+
+        return $protokolle;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {

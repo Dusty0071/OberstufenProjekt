@@ -363,6 +363,8 @@ function easterEgg() {
 
 function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   $Gruppen = GetGruppen();
+  $Lehrer = GetAllLehrer();
+  var_dump($Gruppen);
   if($new) {
 
   } else {
@@ -373,13 +375,22 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   }
 
   echo '<form action="/">
-    <ul>
-    <select>';
-    foreach($Gruppen as $key => $value) {
-      echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
-    }
+    <label for="Typ">Titel</label>
+    <input type="text" name="Typ" value="' . $protokoll->Typ . '">
+
+    <label for="Gruppe">Gruppe</label>
+    <select name="Gruppe">';
+      echo '<option value="0">Benutzerdefiniert</option>';
+      foreach($Gruppen as $key => $value) {
+        echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
+      }
   echo'</select>
-    </ul>
+    <div style="overflow: scroll; width: 200px; height: 200px;">';
+    foreach($Lehrer as $key => $value) {
+      echo '<input type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '<br>';
+    }
+      
+  echo'</div>
   </form>';
 
 }
