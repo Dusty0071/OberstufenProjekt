@@ -266,11 +266,31 @@ function getProtokoll($ID) {
 }
 
 function SaveLehrer($lehrer){
-    if($lehrer->ID > 0){
-        // UPDATE 
-    }
-    else{
-        // INSERT
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($lehrer->ID > 0){
+            $query ="UPDATE Lehrer SET Vorname='".$lehrer->Vorname."', Nachname='".$lehrer->Nachname."',EMail='".$lehrer->EMail."' WHERE ID = ".$lehrer->ID;
+        }
+        else{
+            $query ="INSERT INTO Lehrer (Vorname,Nachname,EMail) VALUES('".$lehrer->Vorname."','".$lehrer->Nachname."','".$lehrer->EMail."')";
+        }
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p>Lehrer gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
     }
 }
 
