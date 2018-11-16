@@ -8,7 +8,7 @@
         switch ($_POST['action']) {
             case 'deleteLehrer':
                     if(is_numeric($_POST['lehrerId'])){
-                        deleteLehrer($_POST['lehrerId']);
+                        triggerDeleteLehrer($_POST['lehrerId']);
                     }
                     else{
                         returnError("Invalid value.");
@@ -33,7 +33,7 @@
     function returnResult($ok,$message){
         echo json_encode(array('ok'=>$ok,'message'=>$message,'timestamp'=>time()));
     }
-    function deleteLehrer($id){
+    function triggerDeleteLehrer($id){
         $result = DeleteLehrer($id);
         if($result){
             returnSuccess("Lehrer gelöscht");
