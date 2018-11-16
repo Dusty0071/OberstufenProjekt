@@ -30,7 +30,7 @@ function initSetVorauswahl(){
 
 function setVorauswahl(gruppeId){
     console.log(gruppeId);
-    var LehrerCheckboxes = LehrerContainer.getElementsByName("Lehrer");
+    var LehrerCheckboxes = document.getElementsByName("Lehrer");
     LehrerCheckboxes.forEach(element => {
         if(element.value == gruppeId){
             element.selected=true;
