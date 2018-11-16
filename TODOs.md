@@ -1,5 +1,5 @@
 |Offene Punkte|Erledigt|
-|---|---|---|
+|---|---|
 |Datenbankdiagramm fixen|✓|
 |Paper Prototype||												
 |Auswahlliste mit Lehrern als PDF exportieren||
