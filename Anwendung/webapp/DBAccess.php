@@ -442,7 +442,28 @@ function SaveLehrer($lehrer){
 }
 
 function DeleteLehrer($id){
-    
+    $result=false;
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($lehrer->ID > 0){
+            $query ="DELETE FROM Lehrer WHERE ID = ".$id;
+            
+            if ($mysqli->connect_errno) {
+                $result=false;
+            }
+            if($result = $mysqli->query($query)) {
+                $result=true;
+            }
+        }
+
+    } catch(Exception $e) {
+        $result=false;
+    } finally {
+        $mysqli->close();
+        return $result;
+    }
 }
 
 function SaveGruppe($gruppe){
