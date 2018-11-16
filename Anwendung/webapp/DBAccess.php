@@ -6,6 +6,11 @@ class Lehrer {
     public $Vorname = "";
     public $Nachname = "";
     public $EMail = "";
+    public $Benutzername = "";
+    public $Passwort = "";
+    public $isAdmin = "";
+    public $isAktiv = "";
+
 
     function __construct($row = null) {
         fillObj($this, $row);
@@ -22,15 +27,16 @@ class Protokoll {
     public $ID = 0;
     public $Typ = "";
     public $Raum = "";
-    public $KonferenzDatum; //DateTime
+    public $KonferenzDate; //DateTime
     public $LastEditUser = "";
     public $LastEditDate; //DateTime
     public $CreateDate; //DateTime
     public $TOPs = []; //Array(TOP)
     public $ProtokollLehrer = []; //Array(ProtokollLehrer)
+    public $GruppenID = 0;
     
     function __construct($row = null) {
-        $this->KonferenzDatum = new DateTime("0000-01-01");
+        $this->KonferenzDate = new DateTime("0000-01-01");
         $this->LastEditDate = new DateTime("0000-01-01");
         $this->CreateDate = new DateTime("0000-01-01");
 
