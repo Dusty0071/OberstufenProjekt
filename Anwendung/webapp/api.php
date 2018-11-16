@@ -36,6 +36,10 @@
             case 'getLehrerGruppe':
                 echo json_encode(GetLehrerGruppen());
                 break;
+
+            case 'getLehrer':
+                echo json_encode(getAllLehrer());
+                break;
             
             default:
                 returnError("Acttion not implemented.");
