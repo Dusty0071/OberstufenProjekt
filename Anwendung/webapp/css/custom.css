@@ -31,6 +31,7 @@ tr:hover.clickable {
 .center {
     text-align: center;
 }
+
 section.form {
     margin-bottom: 30px;
 }
@@ -39,4 +40,51 @@ section.form {
     color: #0dd10d;
     font-size: 20px;
     font-weight: bold;
+}
+
+.Topic {
+    padding: 0 0 20px;
+    border-bottom-style: double;
+}
+
+label {
+    vertical-align: top;
+    padding: 10px 20px 10px 0
+}
+
+textarea {
+    width: 700px;
+    height: 150px;
+}
+
+td {
+    vertical-align: top;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+input[type=number] {
+    width: 44px;
+}
+
+.Lehrer {
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 200px;
+}
+
+.Lehrer div.inline {
+    margin: 0 20px 10px 0;
+}
+
+.Lehrer {
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 200px;
+}
+
+.inline {
+    display: inline-block;
 }
