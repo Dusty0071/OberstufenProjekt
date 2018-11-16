@@ -202,6 +202,36 @@ function fillObj(&$obj, $row) {
     }
 }
 
+function GetLehrerGruppen() {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $LehrerGruppe = [];
+        if($result = $mysqli->query("SELECT * FROM lehrerGruppen")) {
+            $i = 0;
+            while ($row = $result->fetch_object()){
+                $LehrerGruppe[$i] = new LehrerGruppe($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM lehrerGruppen\n';
+            return false;
+        }
+
+        return $LehrerGruppe;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
 
 function GetGruppen() {
     try {

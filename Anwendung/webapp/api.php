@@ -25,12 +25,16 @@
                 break;
 
             case 'deleteLehrerGruppe':
-                if(is_numeric($_POST['gruppeId'])&& is_numeric($_POST['lehrerId']){
+                if(is_numeric($_POST['gruppeId'])&& is_numeric($_POST['lehrerId'])){
                     triggerDeleteLehrerGruppe($_POST['lehrerId'],$_POST['gruppeId']);
                 }
                 else{
                     returnError("Invalid value.");
                 }
+                break;
+
+            case 'getLehrerGruppe':
+                echo json_encode(GetLehrerGruppen());
                 break;
             
             default:
@@ -71,7 +75,7 @@
     }
 
     function triggerDeleteLehrerGruppe($lehrerId,$gruppeId){
-        $result = DeleteLehrerGruppe($lehrerId,$gruppeId)
+        $result = DeleteLehrerGruppe($lehrerId,$gruppeId);
         if($result){
             returnSuccess("Verbindung gelöscht");
         }

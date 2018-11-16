@@ -405,7 +405,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   echo'</select></td></tr></table>
     <div class="Lehrer">';
     foreach($Lehrer as $key => $value) {
-      echo '<div class="inline"><div><input type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
+      echo '<div class="inline"><div><input class="checkbox lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
       
   echo'</div><h2>Themen</h2>';
