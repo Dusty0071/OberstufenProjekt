@@ -2,7 +2,7 @@
 |---|---|---|
 |Datenbankdiagramm fixen|✓|
 |Paper Prototype||												
-|Auswahlliste mit Lehrern |als PDF exportieren||
+|Auswahlliste mit Lehrern als PDF exportieren||
 |PDF mit Liste von TOPs, Konferenzleitern, Datum & Protokollant||
 |Emails versenden mit extra für Protokollant & Konferenzleiter||
 |Auswahl mit Gruppenmitgliedern vorbelegen||
