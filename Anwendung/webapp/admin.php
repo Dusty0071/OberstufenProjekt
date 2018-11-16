@@ -33,6 +33,7 @@ else if(isset($_POST['pushLehrerGruppe'])){
     $lehrerGruppe= new LehrerGruppe();
     $lehrerGruppe -> GruppenID = $_POST['gruppeList'];
     $lehrerGruppe -> LehrerID = $_POST['lehrerList'];
+    SaveLehrerGruppe($lehrerGruppe);
 }
 
 $gruppen = GetGruppen();

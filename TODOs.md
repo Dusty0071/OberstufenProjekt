@@ -12,7 +12,7 @@
 |Lehrer als abwesend markieren und in roter Schrift darstellen||
 |Eine Liste mit allen Beschlüssen Abstimmung nach Datum absteigend||
 |Beschlussliste ebenfalls als PDF exportierbar nachdem nach Schuljahren filtern kann||
-|Lehrerkonten im Admintool anlegen|(✓)|
+|Lehrerkonten im Admintool anlegen|✓|
 |Protokollant darf TOPs nicht bearbeiten||
 |Spätere Bearbeitung eines Protokolls ermöglichen||
 |Versionierung – Auswahl einer Version (nach Datum absteigend)||

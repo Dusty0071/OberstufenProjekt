@@ -88,3 +88,9 @@ input[type=number] {
 .inline {
     display: inline-block;
 }
+
+.delete-btn{
+    top: 2px;
+    position: relative;
+    left: -5px;
+}

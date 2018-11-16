@@ -1,5 +1,6 @@
 (function() {
     TableFormatting();
+    initSetVorauswahl();
 })();
 
 function TableFormatting() {
@@ -15,6 +16,30 @@ function TableFormatting() {
             }
         }
     }
+}
+
+function initSetVorauswahl(){
+    var sel = document.getElementsByName('Gruppe');
+    if(sel.length > 0){
+        sel[0].onchange = function() {
+            setVorauswahl(this.value);
+         }
+    }
+    
+}
+
+function setVorauswahl(gruppeId){
+    console.log(gruppeId);
+    var LehrerCheckboxes = document.getElementsByName("Lehrer");
+    LehrerCheckboxes.forEach(element => {
+        console.log(element.value);
+        if(element.value == gruppeId){
+            element.checked = true;
+        }
+        else{
+            element.checked = false;
+        }
+    });
 }
 
 function DeleteLehrer(id){

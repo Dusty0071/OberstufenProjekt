@@ -447,6 +447,25 @@ function SaveLehrer($lehrer){
     }
 }
 
+function SaveLehrerGruppe($lehrerGruppe){
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query ="INSERT INTO lehrerGruppen (LehrerID,GruppenID) VALUES(".$lehrerGruppe->LehrerID.",".$lehrerGruppe->GruppenID.")";
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p class="success-message">Zuordnung gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+        }
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
 function DeleteLehrer($id){
     $result=DELETE("DELETE FROM Lehrer WHERE ID = ".$id);
     return $result;
@@ -466,14 +485,12 @@ function DELETE($query){
     $result=false;
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
-
-        if($id > 0){            
-            if ($mysqli->connect_errno) {
-                $result=false;
-            }
-            if($result = $mysqli->query($query)) {
-                $result=true;
-            }
+           
+        if ($mysqli->connect_errno) {
+            $result=false;
+        }
+        if($result = $mysqli->query($query)) {
+            $result=true;
         }
 
     } catch(Exception $e) {
