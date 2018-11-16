@@ -32,6 +32,7 @@ function setVorauswahl(gruppeId){
     console.log(gruppeId);
     var LehrerCheckboxes = document.getElementsByName("Lehrer");
     LehrerCheckboxes.forEach(element => {
+        console.log(element.value);
         if(element.value == gruppeId){
             element.checked = true;
         }
