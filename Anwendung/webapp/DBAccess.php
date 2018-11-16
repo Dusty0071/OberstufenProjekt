@@ -97,6 +97,7 @@ class ProtokollLehrer {
 class Gruppe {
     public $ID = 0;
     public $Name = "";
+    public $VerteilerMail = "";
 
     function __construct($row = null) {
         fillObj($this, $row);
@@ -112,7 +113,6 @@ class Gruppe {
 class LehrerGruppe {
     public $GruppenID = 0;
     public $LehrerID = 0;
-    public $VerteilerMail = "";
     public $Lehrer; //Lehrer
     public $Gruppe; // Gruppe
 
@@ -450,7 +450,7 @@ function SaveGruppe($gruppe){
             $query ="UPDATE Gruppen SET Name='".$gruppe->Name."' WHERE ID = ".$gruppe->ID;
         }
         else{
-            $query ="INSERT INTO Gruppen (Name) VALUES('".$gruppe->Name."')";
+            $query ="INSERT INTO Gruppen (Name,VerteilerMail) VALUES('".$gruppe->Name."','".$gruppe->VerteilerMail."')";
         }
 
         if ($mysqli->connect_errno) {
