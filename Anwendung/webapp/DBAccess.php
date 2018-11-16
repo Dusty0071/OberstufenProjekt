@@ -441,6 +441,10 @@ function SaveLehrer($lehrer){
     }
 }
 
+function DeleteLehrer($id){
+    
+}
+
 function SaveGruppe($gruppe){
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
