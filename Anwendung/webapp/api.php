@@ -54,10 +54,10 @@
     function triggerDeleteGruppe($id){
         $result = DeleteGruppe($id);
         if($result){
-            returnSuccess("Lehrer gelöscht");
+            returnSuccess("Gruppe gelöscht");
         }
         else{
-            returnError("Lehrer konnte nicht gelöscht werden.");
+            returnError("Gruppe konnte nicht gelöscht werden.");
         }
     }
 
