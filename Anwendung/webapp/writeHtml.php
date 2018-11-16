@@ -297,11 +297,11 @@ function writeFoot() {
 function writeAdminForm($gruppen,$lehrer){
   echo "<form id='jumptoform' method='POST' action='admin.php#jumptoform'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/><ul>";
   foreach ($lehrer as $key => $value) {
-    echo "<li>".$value->Vorname." ".$value->Nachname."</li>";
+    echo "<li>".$value->Vorname." ".$value->Nachname." <a style='cursor:pointer;' onclick='DeleteLehrer(".$value->ID.")'>Lehrer Löschen</a></li>";
   }
   echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='text' name='verteilerGruppe' placeholder='Email Verteiler'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
   foreach ($gruppen as $key => $value) {
-    echo "<li>".$value->Name."</li>";
+    echo "<li>".$value->Name." <a style='cursor:pointer;' onclick='DeleteGruppe(".$value->ID.")'>Gruppe Löschen</a></li>";
   }
   echo"</ul></section><section class='from gruppeLehrer'><h4>Lehrer einer Gruppe zuordnen:</h4>";
   echo "<select name='lehrerList'>";

@@ -16,3 +16,47 @@ function TableFormatting() {
         }
     }
 }
+
+function DeleteLehrer(id){
+    postAjax('http://fia63kaden.bplaced.net/pgotest/api.php','action=deleteLehrer&lehrerId='+id,function(data){
+        var restult = JSON.parse(data);
+        if(restult.ok){
+            location.reload(true);
+        }
+        else {
+            alert(restult.message);
+            console.error(restult);
+        }
+    });
+}
+
+function DeleteGruppe(id){
+    postAjax('http://fia63kaden.bplaced.net/pgotest/api.php','action=deleteGruppe&gruppeId='+id,function(data){
+        var restult = JSON.parse(data);
+        if(restult.ok){
+            location.reload(true);
+        }
+        else {
+            alert(restult.message);
+            console.error(restult);
+        }
+    });
+}
+
+
+
+function postAjax(url, data, success) {
+    var params = typeof data == 'string' ? data : Object.keys(data).map(
+        function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
+    ).join('&');
+
+    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open('POST', url);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState>3 && xhr.status==200) { success(xhr.responseText); }
+    };
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(params);
+    return xhr;
+}
