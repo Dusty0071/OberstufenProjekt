@@ -14,6 +14,15 @@
                         returnError("Invalid value.");
                     }
                 break;
+
+            case 'deleteGruppe':
+                if(is_numeric($_POST['gruppeId'])){
+                    triggerDeleteLehrer($_POST['gruppeId']);
+                }
+                else{
+                    returnError("Invalid value.");
+                }
+                break;
             
             default:
                 returnError("Acttion not implemented.");
@@ -41,6 +50,15 @@
         else{
             returnError("Lehrer konnte nicht gelöscht werden.");
         }
+    }
+    function triggerDeleteGruppe($id){
+        // $result = DeleteLehrer($id);
+        // if($result){
+        //     returnSuccess("Lehrer gelöscht");
+        // }
+        // else{
+        //     returnError("Lehrer konnte nicht gelöscht werden.");
+        // }
     }
 
 
