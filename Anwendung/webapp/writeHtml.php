@@ -382,34 +382,53 @@ function easterEgg() {
 function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   $Gruppen = GetGruppen();
   $Lehrer = GetAllLehrer();
-  var_dump($Gruppen);
-  if($new) {
 
+  if($new) {
   } else {
     if($protokoll !== null) {
-
+      $Topic = $protokoll->TOPs;
     } else {
     }
   }
 
   echo '<form action="/">
-    <label for="Typ">Titel</label>
-    <input type="text" name="Typ" value="' . $protokoll->Typ . '">
-
-    <label for="Gruppe">Gruppe</label>
-    <select name="Gruppe">';
+    <table><tr><td>
+    <label for="Typ">Titel</label></td>
+    <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
+    <tr><td>
+    <label for="Gruppe">Gruppe</label></td>
+    <td><select name="Gruppe">';
       echo '<option value="0">Benutzerdefiniert</option>';
       foreach($Gruppen as $key => $value) {
         echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
       }
-  echo'</select>
-    <div style="overflow: scroll; width: 200px; height: 200px;">';
+  echo'</select></td></tr></table>
+    <div class="Lehrer">';
     foreach($Lehrer as $key => $value) {
-      echo '<input type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '<br>';
+      echo '<div class="inline"><div><input type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
       
-  echo'</div>
-  </form>';
+  echo'</div><h2>Themen</h2>';
+    $i = 0;
+    foreach($Topic as $key => $value) {
+      echo '<h4>Topic ' . ($i+1) . '</h4>';
+      echo '<table class="Topic">';
+      echo '<tr><td><label for="Topic[' . $i . '][Name]">Titel</label></td>
+        <td><input type="text" name="Topic[' . $i . '][Name]" value="' . $value->Name . '"></td></tr>';
+      echo '<tr><td><label for="Topic[' . $i . '][Beschreibung]">Beschreibung</label></td>
+        <td><textarea name="Topic[' . $i . '][Beschreibung]">' . $value->Beschreibung . '</textarea></td></tr>';
+      echo '<tr><td><label for="Topic[' . $i . '][Beschluss]">Beschluss</label></td>
+        <td><textarea name="Topic[' . $i . '][Beschluss]">' . $value->Beschluss . '</textarea></td></tr>';
+      echo '<tr><td><label for="Topic[' . $i . '][Dafuer]">Dafür</label></td>
+        <td><input type="Number" name="Topic[' . $i . '][Dafuer]" value ="' . $value->Dafuer . '"></td></tr>';
+      echo '<tr><td><label for="Topic[' . $i . '][Dagegen]">Dagegen</label></td>
+        <td><input type="Number" name="Topic[' . $i . '][Dagegen]" value ="' . $value->Dagegen . '"></td></tr>';
+      echo '<tr><td><label for="Topic[' . $i . '][Enthalten]">Enthalten</label></td>
+        <td><input type="Number" name="Topic[' . $i . '][Enthalten]" value ="' . $value->Enthalten . '"></td></tr>';
+      echo '</table>';
+      $i++;
+    }
+  echo'</form>';
 
 }
 ?>

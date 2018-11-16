@@ -362,14 +362,14 @@ function getAllLehrer() {
         }
 
         $Lehrer = [];
-        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer")) {
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer ORDER BY Nachname ASC")) {
             $j = 0;
             while ($rowLehrer = $resultLehrer->fetch_object()){
                 $Lehrer[$j] = new Lehrer($rowLehrer);
                 $j++;
             }
         } else {
-            echo 'ERROR at: SELECT * FROM Lehrer\n';
+            echo 'ERROR at: SELECT * FROM Lehrer ORDER BY Nachname ASC\n';
             return false;
         }
 
