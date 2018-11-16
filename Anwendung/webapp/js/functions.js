@@ -20,6 +20,13 @@ function TableFormatting() {
 function DeleteLehrer(id){
     postAjax('http://fia63kaden.bplaced.net/pgotest/api.php','action=deleteLehrer&lehrerId='+id,function(data){
         console.log(data);
+        if(data.ok){
+            alert(data.message);
+        }
+        else {
+            alert(data.message);
+            console.error(data);
+        }
     });
 }
 
