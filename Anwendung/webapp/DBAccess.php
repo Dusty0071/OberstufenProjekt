@@ -447,7 +447,7 @@ function DeleteLehrer($id){
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
 
-        if($lehrer->ID > 0){
+        if($id > 0){
             $query ="DELETE FROM Lehrer WHERE ID = ".$id;
             
             if ($mysqli->connect_errno) {
