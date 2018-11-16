@@ -233,6 +233,37 @@ function GetLehrerGruppen() {
     }
 }
 
+function GetGruppe($ID) {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $Gruppen = [];
+        if($result = $mysqli->query("SELECT * FROM Gruppen WHERE ID =".$ID)) {
+            $i = 0;
+            while ($row = $result->fetch_object()){
+                $Gruppen[$i] = new Gruppe($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: SELECT * FROM Gruppen\n';
+            return false;
+        }
+
+        return $Gruppen;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
 function GetGruppen() {
     try {
         //connect to Database

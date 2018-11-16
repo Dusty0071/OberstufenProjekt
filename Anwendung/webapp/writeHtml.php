@@ -294,6 +294,16 @@ function writeFoot() {
 </html>';
 }
 
+function writeLehrerGruppeTable($gruppenLehrer){
+  echo "<table><tr><th>Lehrer</th><th>Gruppe</th></tr>";
+  foreach ($gruppenLehrer as $key => $value) {
+    $lehrer = GetLehrer($value->LehrerID);
+    $gruppe = GetGruppe($value->GruppenID);
+    echo "<tr><td>".$lehrer->Vorname." ".$lehrer->Nachname."</td><td>".$gruppe->Name."</td></tr>";
+  }
+  echo"</table>";
+}
+
 function writeAdminForm($gruppen,$lehrer){
   echo "<form id='jumptoform' method='POST' action='admin.php#jumptoform'><section class='form lehrer'><h4>Lehrer anlegen:</h4><input type='text' name='vNameLehrer' placeholder='Vorname'/><input type='text' name='nNameLehrer' placeholder='Nachname'/><input type='text' name='emailLehrer' placeholder='Email'/><input type='submit' name='pushLehrer' value='Lehrer anlegen'/><ul>";
   foreach ($lehrer as $key => $value) {
