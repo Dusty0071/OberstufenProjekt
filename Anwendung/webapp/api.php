@@ -23,6 +23,15 @@
                     returnError("Invalid value.");
                 }
                 break;
+
+            case 'deleteLehrerGruppe':
+                if(is_numeric($_POST['gruppeId'])&& is_numeric($_POST['lehrerId']){
+                    triggerDeleteLehrerGruppe($_POST['lehrerId'],$_POST['gruppeId']);
+                }
+                else{
+                    returnError("Invalid value.");
+                }
+                break;
             
             default:
                 returnError("Acttion not implemented.");
