@@ -33,7 +33,10 @@ function setVorauswahl(gruppeId){
     var LehrerCheckboxes = document.getElementsByName("Lehrer");
     LehrerCheckboxes.forEach(element => {
         if(element.value == gruppeId){
-            element.selected=true;
+            element.checked = true;
+        }
+        else{
+            element.checked = false;
         }
     });
 }
