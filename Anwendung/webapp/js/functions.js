@@ -20,9 +20,8 @@ function TableFormatting() {
 function DeleteLehrer(id){
     postAjax('http://fia63kaden.bplaced.net/pgotest/api.php','action=deleteLehrer&lehrerId='+id,function(data){
         var restult = JSON.parse(data);
-        console.log(restult);
         if(restult.ok){
-            alert(restult.message);
+            location.reload(true);
         }
         else {
             alert(restult.message);
