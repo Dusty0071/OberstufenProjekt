@@ -442,39 +442,21 @@ function SaveLehrer($lehrer){
 }
 
 function DeleteLehrer($id){
-    $result=false;
-    try {
-        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
-        $query;
-
-        if($id > 0){
-            $query ="DELETE FROM Lehrer WHERE ID = ".$id;
-            
-            if ($mysqli->connect_errno) {
-                $result=false;
-            }
-            if($result = $mysqli->query($query)) {
-                $result=true;
-            }
-        }
-
-    } catch(Exception $e) {
-        $result=false;
-    } finally {
-        $mysqli->close();
-        return $result;
-    }
+    $result=DELETE("DELETE FROM Lehrer WHERE ID = ".$id);
+    return $result;
 }
 
 function DeleteGruppe($id){
+    $result=DELETE("DELETE FROM Gruppen WHERE ID = ".$id);
+    return $result;
+}
+
+function DELETE($query){
     $result=false;
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
-        $query;
 
-        if($id > 0){
-            $query ="DELETE FROM Gruppen WHERE ID = ".$id;
-            
+        if($id > 0){            
             if ($mysqli->connect_errno) {
                 $result=false;
             }
