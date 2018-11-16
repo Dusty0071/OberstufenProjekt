@@ -301,7 +301,7 @@ function writeAdminForm($gruppen,$lehrer){
   }
   echo "</ul></section><section class='form gruppe'><h4>Neue Gruppe anlegen:</h4><input type='text' name='nameGruppe' placeholder='Gruppenname'/><input type='text' name='verteilerGruppe' placeholder='Email Verteiler'/><input type='submit' name='pushGruppe' value='Gruppe anlegen'/><ul>";
   foreach ($gruppen as $key => $value) {
-    echo "<li>".$value->Name."</li>";
+    echo "<li>".$value->Name." <a style='cursor:pointer;' onclick='DeleteGruppe(".$value->ID.")'>Gruppe Löschen</a></li>";
   }
   echo"</ul></section><section class='from gruppeLehrer'><h4>Lehrer einer Gruppe zuordnen:</h4>";
   echo "<select name='lehrerList'>";
