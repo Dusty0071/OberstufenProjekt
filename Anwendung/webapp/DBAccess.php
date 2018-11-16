@@ -460,14 +460,12 @@ function DELETE($query){
     $result=false;
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
-
-        if($id > 0){            
-            if ($mysqli->connect_errno) {
-                $result=false;
-            }
-            if($result = $mysqli->query($query)) {
-                $result=true;
-            }
+           
+        if ($mysqli->connect_errno) {
+            $result=false;
+        }
+        if($result = $mysqli->query($query)) {
+            $result=true;
         }
 
     } catch(Exception $e) {
