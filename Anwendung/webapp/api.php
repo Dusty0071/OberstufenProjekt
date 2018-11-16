@@ -34,7 +34,13 @@
         echo json_encode(array('ok'=>$ok,'message'=>$message,'timestamp'=>time()));
     }
     function deleteLehrer($id){
-
+        $result = DeleteLehrer($id);
+        if($result){
+            returnSuccess("Lehrer gelöscht");
+        }
+        else{
+            returnError("Lehrer konnte nicht gelöscht werden.");
+        }
     }
 
 
