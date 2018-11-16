@@ -466,6 +466,31 @@ function DeleteLehrer($id){
     }
 }
 
+function DeleteGruppe($id){
+    $result=false;
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($id > 0){
+            $query ="DELETE FROM Gruppen WHERE ID = ".$id;
+            
+            if ($mysqli->connect_errno) {
+                $result=false;
+            }
+            if($result = $mysqli->query($query)) {
+                $result=true;
+            }
+        }
+
+    } catch(Exception $e) {
+        $result=false;
+    } finally {
+        $mysqli->close();
+        return $result;
+    }
+}
+
 function SaveGruppe($gruppe){
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
