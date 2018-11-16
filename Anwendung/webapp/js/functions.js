@@ -43,6 +43,19 @@ function DeleteGruppe(id){
     });
 }
 
+function DeleteLehrerGruppe(lehrerId,gruppeId){
+    postAjax('http://fia63kaden.bplaced.net/pgotest/api.php','action=deleteLehrerGruppe&lehrerId='+lehrerId+'&gruppeId='+gruppeId,function(data){
+        var restult = JSON.parse(data);
+        if(restult.ok){
+            location.reload(true);
+        }
+        else {
+            alert(restult.message);
+            console.error(restult);
+        }
+    });
+}
+
 
 
 function postAjax(url, data, success) {
