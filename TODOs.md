@@ -10,7 +10,7 @@
 |Konferenzdatum, Änderungs-Datum/Nutzer anzeigen||
 |Nach jedem TOP erscheint ein Freitextfeld und dazu noch ein Beschluss||
 |Lehrer als abwesend markieren und in roter Schrift darstellen||
-|Eine Liste mit allen Beschlüssen |Abstimmung nach Datum absteigend||
+|Eine Liste mit allen Beschlüssen Abstimmung nach Datum absteigend||
 |Beschlussliste ebenfalls als PDF exportierbar nachdem nach Schuljahren filtern kann||
 |Lehrerkonten im Admintool anlegen|(✓)|
 |Protokollant darf TOPs nicht bearbeiten||
