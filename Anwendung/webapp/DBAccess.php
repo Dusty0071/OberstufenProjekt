@@ -451,6 +451,11 @@ function DeleteGruppe($id){
     return $result;
 }
 
+function DeleteLehrerGruppe($lehrerId,$gruppeId){
+    $result=DELETE("DELETE FROM lehrerGruppen WHERE LehrerID = ".$lehrerId." AND GruppenID = ".$gruppeId);
+    return $result;
+}
+
 function DELETE($query){
     $result=false;
     try {
