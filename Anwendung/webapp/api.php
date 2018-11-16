@@ -61,5 +61,15 @@
         }
     }
 
+    function triggerDeleteLehrerGruppe($lehrerId,$gruppeId){
+        $result = DeleteLehrerGruppe($lehrerId,$gruppeId)
+        if($result){
+            returnSuccess("Verbindung gelöscht");
+        }
+        else{
+            returnError("Verbindung konnte nicht gelöscht werden.");
+        }
+    }
+
 
 ?>
