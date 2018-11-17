@@ -392,6 +392,9 @@ function easterEgg() {
 function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   $Gruppen = GetGruppen();
   $Lehrer = GetAllLehrer();
+  $protokollant = null;
+  $Moderatoren = [];
+  $Gruppe = "";
 
   if($new) {
   } else {
@@ -406,16 +409,38 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
     <label for="Typ">Titel</label></td>
     <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
     <tr><td>
+    <label for="Raum">Raum</label></td>
+    <td><input type="text" name="Raum" value="' . $protokoll->Raum . '"></td></tr>
+    <tr><td>
+    <label for="KonferenzDate">Konferenzdatum</label></td>
+    <td><input type="datetime-local" name="KonferenzDate" value="' . $protokoll->KonferenzDate->format(HTMLDateFormat) . '"></td></tr>
+    <tr><td>
     <label for="Gruppe">Gruppe</label></td>
     <td><select name="Gruppe">';
       echo '<option value="0">Benutzerdefiniert</option>';
       foreach($Gruppen as $key => $value) {
-        echo '<option value="' . $value->ID . '">' . $value->Name . '</option>';
+        $Gruppe = ($value->ID === $protokoll->GruppenID) ? 'selected' : '';
+        echo '<option value="' . $value->ID . '" ' . $Gruppe . '>' . $value->Name . '</option>';
       }
   echo'</select></td></tr></table>
     <div class="Lehrer">';
     foreach($Lehrer as $key => $value) {
-      echo '<div class="inline"><div><input class="checkbox lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '">' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
+      $anwesend = "";
+      foreach($protokoll->ProtokollLehrer as $pLKey => $pLValue) {
+        if($value->ID === $pLValue->LehrerID) {
+          if($pLValue->istProtokollant) {
+            $protokollant = $value;
+          }
+          if($pLValue->istProtokollant) {
+            $Moderatoren[sizeof($Moderatoren)] = $value;
+          }
+          if($pLValue->istAnwesend) {
+            $anwesend = "checked";
+          }
+          break;
+        }
+      }
+      echo '<div class="inline"><div><input type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
       
   echo'</div><h2>Themen</h2>';
