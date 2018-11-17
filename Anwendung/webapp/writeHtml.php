@@ -440,7 +440,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
           break;
         }
       }
-      echo '<div class="inline"><div><input type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
+      echo '<div class="inline"><div><input class="lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
       
   echo'</div><h2>Themen</h2>';
