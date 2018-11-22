@@ -83,9 +83,9 @@ function wirteHead() {
                             </a>
                           </li>
                           <li class="last icon-star">
-                            <a onClick="SetHeader()">
+                            <a onClick="SetHeader()" style="cursor:pointer">
                             <span>
-                              Sitemap	</span>
+                              Special	</span>
                             </a>
                           </li>
                         </ul>
@@ -301,11 +301,11 @@ function writeFoot() {
 }
 
 function writeLehrerGruppeTable($gruppenLehrer){
-  echo "<table><tr><th>Lehrer</th><th>Gruppe</th></tr>";
+  echo "<table class='fancy_table'><tr><th>Lehrer</th><th>Gruppe</th></tr>";
   foreach ($gruppenLehrer as $key => $value) {
     $lehrer = GetLehrer($value->LehrerID);
     $gruppe = GetGruppe($value->GruppenID);
-    echo "<tr><td>".$lehrer->Vorname." ".$lehrer->Nachname."</td><td>".$gruppe->Name."</td></tr>";
+    echo "<tr><td>".$lehrer[0]->Nachname.", ".$lehrer[0]->Vorname."</td><td>".$gruppe[0]->Name."</td></tr>";
   }
   echo"</table>";
 }

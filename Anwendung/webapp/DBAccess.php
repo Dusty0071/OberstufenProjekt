@@ -50,7 +50,7 @@ class Protokoll {
     }
 
     public function printTable() {
-        echo '<tr class="clickable">';
+        echo '<tr class="clickable fancy_table">';
         foreach ($this as $key => $value) {
             $sValue = getString($value);
             if($sValue !== null) {
@@ -220,7 +220,7 @@ function GetLehrerGruppen() {
         }
 
         $LehrerGruppe = [];
-        if($result = $mysqli->query("SELECT * FROM lehrerGruppen")) {
+        if($result = $mysqli->query("SELECT * FROM lehrerGruppen ORDER BY (SELECT Nachname FROM Lehrer WHERE id = lehrerGruppen.lehrerID) ASC")) {
             $i = 0;
             while ($row = $result->fetch_object()){
                 $LehrerGruppe[$i] = new LehrerGruppe($row);
@@ -336,7 +336,7 @@ function printProtokolle($protokolle, $newLine = false) {
     $first = true;
     $count = 0;
     $lang = new clsLang();
-    echo '<table id="linkTable">';
+    echo '<table id="linkTable" class="fancy_table">';
 
     foreach($protokolle as $protokollObj => $value) {
         if($first) {
@@ -460,18 +460,18 @@ function GetLehrer($ID){
         }
 
         $Lehrer = [];
-        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer  WHERE ID = " . $protokoll->ProtokollLehrer[$i]->LehrerID . "")) {
+        if($resultLehrer = $mysqli->query("SELECT * FROM Lehrer  WHERE ID = " . $ID . "")) {
             $j = 0;
             while ($rowLehrer = $resultLehrer->fetch_object()){
                 $Lehrer[$j] = new Lehrer($rowLehrer);
                 $j++;
             }
         } else {
-            echo 'ERROR at: SELECT * FROM Lehrer WHERE ID = ' . $protokoll->ProtokollLehrer[$i]->LehrerID . '\n';
+            echo 'ERROR at: SELECT * FROM Lehrer WHERE ID = ' . $ID . '\n';
             return false;
         }
 
-        return $protokolle;
+        return $Lehrer;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
