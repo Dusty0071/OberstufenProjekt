@@ -21,6 +21,12 @@ class clsLang {
 class clsSettings {
     public $protokollID = "0";
     public $action = "";
+    public $Name = "";
+    public $Beschreibung = "";
+    public $Beschluss = "";
+    public $Dafuer = 0;
+    public $Dagegen = 0;
+    public $Enthalten = 0;
     public $Topic = [];
 
     function __construct() {

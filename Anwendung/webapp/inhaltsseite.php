@@ -8,9 +8,14 @@ writeLogin();
 writeHeadEnd();
 
 $settings = new clsSettings();
+$emptyTop = false;
+
 switch($settings->action) {
     case "save":
         echo 'Übernehmen';
+        $protokoll = new Top($settings);
+        $protokoll->ID = $settings->protokollID;
+        saveProtokoll($protokoll);
         foreach($settings->Topic as $key => $value) {
             saveTopic($value, $settings->protokollID);
         }
@@ -18,8 +23,12 @@ switch($settings->action) {
     case "pdf":
         echo 'PDF Drucken';
         break;
+    case "addTop":
+        echo 'Add Topic';
+        $emptyTop = true;
+        break;
     case "":
-        echo 'Nothing';
+        //Kein Knopf gedrückt
         break;
     default:
         echo 'Error: Not Implementet';
@@ -28,7 +37,7 @@ switch($settings->action) {
 
 if($settings->protokollID !== 0) {
     /* highlight_string("<?php\n\getProtokoll($settings->protokollID) =\n" . var_export(getProtokoll($settings->protokollID), true) . ";\n?>"); */
-    writeProtokollForm(getProtokoll($settings->protokollID), false);
+    writeProtokollForm(getProtokoll($settings->protokollID), false, false, $emptyTop);
 
 } else {
     //TODO Neues Protokoll

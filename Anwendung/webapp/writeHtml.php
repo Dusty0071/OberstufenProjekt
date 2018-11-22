@@ -395,12 +395,14 @@ function easterEgg() {
  -->';
 }
 
-function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
+function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $emptyTop = false) {
   $Gruppen = GetGruppen();
   $Lehrer = GetAllLehrer();
   $protokollant = null;
   $Moderatoren = [];
   $Gruppe = "";
+
+
 
   if($new) {
   } else {
@@ -408,6 +410,10 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       $Topic = $protokoll->TOPs;
     } else {
     }
+  }
+
+  if($emptyTop) {
+    $Topic[count($Topic)] = new TOP();
   }
 
   echo '<form method="post">
@@ -463,7 +469,8 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
         $BVisibilty = "visibility: collapse;";
         $class="closed";
       }
-      echo '<h4>Topic ' . ($i+1) . '</h4>';
+      echo '<input type="hidden" name="Topic[' . $i . '][ID]" value="'. $value->ID .'">';
+      echo '<h4>Thema ' . ($i+1) . '</h4>';
       echo '<table class="Topic">';
       echo '<tr><td><label for="Topic[' . $i . '][Name]">Titel</label></td>
         <td><input type="text" name="Topic[' . $i . '][Name]" value="' . $value->Name . '"></td></tr>';
@@ -482,7 +489,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '</table>';
       $i++;
     }
-    echo '<button type="submit" name="action" value="save">Übernehmen</button><button type="submit" name="action" value="pdf">PDF Drucken</button>';
+    echo '<button type="submit" name="action" value="addTop">Thema Hinzufügen</button><button type="submit" name="action" value="save">Übernehmen</button><button type="submit" name="action" value="pdf">PDF Drucken</button>';
   echo'</form>';
 
 }

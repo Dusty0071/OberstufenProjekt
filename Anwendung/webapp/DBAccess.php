@@ -596,7 +596,7 @@ function saveTopic($topic, $protokollID) {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
 
-        if($topic->ID = 0) {
+        if($topic->ID === 0) {
             //Insert
             $query ="INSERT INTO TOPs (Name, Beschreibung, Beschluss, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$topic->Name."','".$topic->Beschreibung."','".$topic->Beschluss."','".$topic->Dafuer."','".$topic->Dagegen."','".$topic->Enthalten."','".$protokollID."')";
         } else {
@@ -608,7 +608,7 @@ function saveTopic($topic, $protokollID) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Topic "'.$topic->Name.'" gespeichert.</p><p>' . $query . '</p>';
+            echo '<p class="success-message">Topic "'.$topic->Name.'" gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -621,4 +621,33 @@ function saveTopic($topic, $protokollID) {
     }
 }
 
+function saveProtokoll($protokoll) {
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($protokoll->ID === 0) {
+            //Insert
+            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$protokoll->Name."','".$protokoll->Beschreibung."','".$protokoll->Beschluss."','".$protokoll->Dafuer."','".$protokoll->Dagegen."','".$protokoll->Enthalten."','".$protokollID."')";
+        } else {
+            //Update
+            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format()."', Dafuer='".$protokoll->Dafuer."', Dagegen='".$protokoll->Dagegen."', Enthalten='".$protokoll->Enthalten."', ProtokollID='".$protokollID."' WHERE ID = ".$protokoll->ID;  
+        }
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p class="success-message">Topic "'.$protokoll->Typ.'" gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
 ?>
