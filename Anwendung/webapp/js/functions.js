@@ -107,7 +107,7 @@ function ToggleRows(id){
 }
 
 function SetHeader(){
-  var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0&amp;rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   document.getElementById('jsn-pos-promo').getElementsByTagName('p')[0].innerHTML=iframe;
 }
 
