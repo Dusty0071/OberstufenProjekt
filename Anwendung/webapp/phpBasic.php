@@ -19,7 +19,7 @@ class clsLang {
 }
 
 class clsSettings {
-    public $protokollId = "0";
+    public $protokollID = "0";
     public $action = "";
 
     function __construct() {
