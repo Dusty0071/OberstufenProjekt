@@ -96,6 +96,19 @@ function DeleteLehrerGruppe(lehrerId,gruppeId){
   });
 }
 
+function ToggleRows(id){
+  var rows = document.getElementsByClassName("toggleRow"+id);
+  rows.forEach(row => {
+    if(row.className.indexOf("opened")>= 0){
+      console.log(row.classList);
+    }
+    else{
+      console.warn(row.classList);
+    }
+  });
+}
+
+
 
 
 function postAjax(url, data, success) {
@@ -112,8 +125,4 @@ function postAjax(url, data, success) {
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(params);
   return xhr;
-}
-
-function ToggleRows(id){
-  
 }
