@@ -96,6 +96,19 @@ function DeleteLehrerGruppe(lehrerId,gruppeId){
   });
 }
 
+function ToggleRows(id){
+  var rows = document.getElementsByClassName("toggleRow"+id);
+  rows.forEach(row => {
+    if(row.className.indexOf("opened")>= 0){
+      console.log(row.classList);
+    }
+    else{
+      console.warn(row.classList);
+    }
+  });
+}
+
+
 
 
 function postAjax(url, data, success) {
