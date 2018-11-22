@@ -111,6 +111,10 @@ function SetHeader(){
   if(!special){
     var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0&amp;rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     document.getElementById('jsn-pos-promo').getElementsByTagName('p')[0].innerHTML=iframe;
+    var el = document.createElement("div");
+    el.outerHTML="<div style='position:absolute;width:100%;height:100%;top:0;left:0;'></div>";
+    document.getElementById('jsn-pos-promo').prepend(el);
+    
     special=true;
   }
 }

@@ -301,6 +301,38 @@ function GetGruppen() {
     }
 }
 
+function GetTops() {
+    try {
+        //connect to Database
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+
+        //check connection
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+            return false;
+        }
+
+        $TOPs = [];
+        $query="SELECT * FROM TOPs";
+        if($result = $mysqli->query($query)) {
+            $i = 0;
+            while ($row = $result->fetch_object()){
+                $TOPs[$i] = new TOP($row);
+                $i++;
+            }
+        } else {
+            echo 'ERROR at: '.$query.'\n';
+            return false;
+        }
+
+        return $TOPs;
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
 function GetProtokolle(){
     try {
         //connect to Database
