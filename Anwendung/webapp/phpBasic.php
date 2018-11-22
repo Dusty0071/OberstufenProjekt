@@ -15,6 +15,7 @@ class clsLang {
     public $LastEditUser = "Zuletzt bearbeitet von";
     public $LastEditDate = "Änderungsdatum";
     public $CreateDate = "Erstellungsdatum";
+    public $GruppenID = "Gruppen ID";
 }
 
 class clsSettings {
