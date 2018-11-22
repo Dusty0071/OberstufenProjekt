@@ -113,3 +113,7 @@ function postAjax(url, data, success) {
   xhr.send(params);
   return xhr;
 }
+
+function ToggleRows(id){
+  
+}

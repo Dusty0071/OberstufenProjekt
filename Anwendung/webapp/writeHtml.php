@@ -461,14 +461,14 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '<tr><td><label for="Topic[' . $i . '][Beschreibung]">Beschreibung</label></td>
         <td><textarea name="Topic[' . $i . '][Beschreibung]">' . $value->Beschreibung . '</textarea></td></tr>';
       echo '<tr><td><label for="' . $i . '_Beschlossen">Beschlossen</label></td>
-        <td><input type="checkbox" name="' . $i . '_Beschlossen" ' . $Beschlossen . '></tr>';
-      echo '<tr style="' . $BVisibilty . '" false"><td><label for="Topic[' . $i . '][Beschluss]">Beschluss*</label></td>
+        <td><input type="checkbox" click="ToggleRows('.$i.')" name="' . $i . '_Beschlossen" ' . $Beschlossen . '></tr>';
+      echo '<tr class="toggleRow'.$i.'" style="' . $BVisibilty . '" false"><td><label for="Topic[' . $i . '][Beschluss]">Beschluss*</label></td>
         <td><textarea name="Topic[' . $i . '][Beschluss]">' . $value->Beschluss . '</textarea></td></tr>';
-      echo '<tr style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Dafuer]">Dafür</label></td>
+      echo '<tr class="toggleRow'.$i.'" style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Dafuer]">Dafür</label></td>
         <td><input type="Number" name="Topic[' . $i . '][Dafuer]" value ="' . $value->Dafuer . '"></td></tr>';
-      echo '<tr style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Dagegen]">Dagegen</label></td>
+      echo '<tr class="toggleRow'.$i.'" style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Dagegen]">Dagegen</label></td>
         <td><input type="Number" name="Topic[' . $i . '][Dagegen]" value ="' . $value->Dagegen . '"></td></tr>';
-      echo '<tr style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Enthalten]">Enthalten</label></td>
+      echo '<tr class="toggleRow'.$i.'" style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Enthalten]">Enthalten</label></td>
         <td><input type="Number" name="Topic[' . $i . '][Enthalten]" value ="' . $value->Enthalten . '"></td></tr>';
       echo '</table>';
       $i++;
