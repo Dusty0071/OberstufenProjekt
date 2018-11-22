@@ -482,7 +482,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '</table>';
       $i++;
     }
-    echo '<button type="button">Übernehmen</button><button type="button">PDF Drucken</button>';
+    echo '<button type="button" name="action">Übernehmen</button><button type="button" name="action">PDF Drucken</button>';
   echo'</form>';
 
 }

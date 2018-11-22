@@ -20,6 +20,7 @@ class clsLang {
 
 class clsSettings {
     public $protokollId = "0";
+    public $action = "";
 
     function __construct() {
         foreach (get_object_vars($this) as $key => $value) {
