@@ -15,7 +15,7 @@ function TableFormatting() {
       if (rows[r].getElementsByTagName("td").length > 0) {
         rows[r].addEventListener('click', function() {
           var id = this.getElementsByTagName("td")[0].innerHTML;
-          window.location.href = window.location.origin + "/inhaltsseite.php?protokollId=" + id;
+          window.location.href = window.location.origin + "/inhaltsseite.php?protokollID=" + id;
         });
       }
     }
