@@ -100,3 +100,26 @@ tr[class^="toggleRow"].opened{
 tr[class^="toggleRow"].closed{
     visibility: collapse!important;
 }
+
+#lehrer_gruppe {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#lehrer_gruppe td, #lehrer_gruppe th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#lehrer_gruppe tr:nth-child(even){background-color: #f2f2f2;}
+
+#lehrer_gruppe tr:hover {background-color: #ddd;}
+
+#lehrer_gruppe th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #172534;
+    color: white;
+}

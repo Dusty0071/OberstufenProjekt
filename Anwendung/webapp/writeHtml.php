@@ -301,7 +301,7 @@ function writeFoot() {
 }
 
 function writeLehrerGruppeTable($gruppenLehrer){
-  echo "<table><tr><th>Lehrer</th><th>Gruppe</th></tr>";
+  echo "<table id='lehrer_gruppe'><tr><th>Lehrer</th><th>Gruppe</th></tr>";
   foreach ($gruppenLehrer as $key => $value) {
     $lehrer = GetLehrer($value->LehrerID);
     $gruppe = GetGruppe($value->GruppenID);
