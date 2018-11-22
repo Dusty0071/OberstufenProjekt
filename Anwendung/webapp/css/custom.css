@@ -101,22 +101,22 @@ tr[class^="toggleRow"].closed{
     visibility: collapse!important;
 }
 
-#lehrer_gruppe {
+#fancy_table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#lehrer_gruppe td, #lehrer_gruppe th {
+#fancy_table td, #fancy_table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#lehrer_gruppe tr:nth-child(even){background-color: #f2f2f2;}
+#fancy_table tr:nth-child(even){background-color: #f2f2f2;}
 
-#lehrer_gruppe tr:hover {background-color: #ddd;}
+#fancy_table tr:hover {background-color: #ddd;}
 
-#lehrer_gruppe th {
+.fancy_table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
