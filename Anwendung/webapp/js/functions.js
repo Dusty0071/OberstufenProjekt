@@ -1,6 +1,7 @@
 (function() {
   TableFormatting();
   initSetVorauswahl();
+  SubscribeCheckboxLabels();
 })();
 
 var gruppen2Lehrer=[];
@@ -14,7 +15,7 @@ function TableFormatting() {
       if (rows[r].getElementsByTagName("td").length > 0) {
         rows[r].addEventListener('click', function() {
           var id = this.getElementsByTagName("td")[0].innerHTML;
-          window.location.href = window.location.origin + "/inhaltsseite.php?protokollId=" + id;
+          window.location.href = window.location.origin + "/inhaltsseite.php?protokollID=" + id;
         });
       }
     }
@@ -23,11 +24,11 @@ function TableFormatting() {
 
 function SubscribeCheckboxLabels(){
   var sel = document.getElementsByClassName("lehrer-checkbox");
-  sel.forEach(element => {
-    element.parentElement.addEventListener('click',function(){
+  for (let i = 0; i < sel.length; i++) {
+    sel[i].parentElement.parentElement.addEventListener('click',function(){
       this.getElementsByClassName('lehrer-checkbox').checked=!this.getElementsByClassName('lehrer-checkbox').checked;
     });
-  });
+  }
 }
 
 function initSetVorauswahl(){
@@ -99,17 +100,16 @@ function DeleteLehrerGruppe(lehrerId,gruppeId){
 function ToggleRows(id){
   var rows = document.getElementsByClassName("toggleRow"+id);
   console.log(rows);
-  rows.forEach(row => {
-    if(row.className.indexOf("opened")>= 0){
-      console.log(row.classList);
-    }
-    else{
-      console.warn(row.classList);
-    }
-  });
+  for (let i = 0; i < rows.length; i++) {
+    console.log(rows[i]);
+    
+  }
 }
 
-
+function SetHeader(){
+  var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('jsn-pos-promo').getElementsByTagName('p')[0].innerHTML=iframe;
+}
 
 
 function postAjax(url, data, success) {
