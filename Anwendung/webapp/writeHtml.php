@@ -82,6 +82,12 @@ function wirteHead() {
                             Das Projekt			</span>
                             </a>
                           </li>
+                          <li class="last icon-star">
+                            <a onClick="SetHeader()">
+                            <span>
+                              Sitemap	</span>
+                            </a>
+                          </li>
                         </ul>
                         <div class="clearbreak"></div>
                       </div>
