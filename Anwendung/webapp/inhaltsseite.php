@@ -7,23 +7,26 @@ wirteHead();
 writeLogin();
 writeHeadEnd();
 
+var_dump($_REQUEST);
+
 $settings = new clsSettings();
 switch($settings->action) {
-    case "Übernehmen":
+    case "save":
         echo 'Übernehmen';
         break;
-    case "PDF Drucken":
+    case "pdf":
         echo 'PDF Drucken';
         break;
     case "":
         echo 'Nothing';
+        break;
     default:
         echo 'Error: Not Implementet';
         break;
 }
-if($settings->protokollId !== 0) {
-    /* highlight_string("<?php\n\getProtokoll($settings->protokollId) =\n" . var_export(getProtokoll($settings->protokollId), true) . ";\n?>"); */
-    writeProtokollForm(getProtokoll($settings->protokollId), false);
+if($settings->protokollID !== 0) {
+    /* highlight_string("<?php\n\getProtokoll($settings->protokollID) =\n" . var_export(getProtokoll($settings->protokollID), true) . ";\n?>"); */
+    writeProtokollForm(getProtokoll($settings->protokollID), false);
 
 } else {
     //TODO Neues Protokoll

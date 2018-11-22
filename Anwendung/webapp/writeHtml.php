@@ -83,7 +83,7 @@ function wirteHead() {
                             </a>
                           </li>
                           <li class="last icon-star">
-                            <a onClick="SetHeader()">
+                            <a onClick="SetHeader()" style="cursor:pointer">
                             <span>
                               Sitemap	</span>
                             </a>
@@ -410,8 +410,8 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
     }
   }
 
-  echo '<form action="/">
-  <input type="hidden" name="ID" value="'. $protokoll->ID .'">
+  echo '<form>
+    <input type="hidden" name="protokollID" value="'. $protokoll->ID .'">
     <table><tr><td>
     <label for="Typ">Titel</label></td>
     <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
@@ -482,7 +482,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '</table>';
       $i++;
     }
-    echo '<button type="button" name="action">Übernehmen</button><button type="button" name="action">PDF Drucken</button>';
+    echo '<button type="submit" name="action" value="save">Übernehmen</button><button type="submit" name="action" value="pdf">PDF Drucken</button>';
   echo'</form>';
 
 }
