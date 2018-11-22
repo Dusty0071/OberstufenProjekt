@@ -50,7 +50,7 @@ class Protokoll {
     }
 
     public function printTable() {
-        echo '<tr class="clickable">';
+        echo '<tr class="clickable fancy_table">';
         foreach ($this as $key => $value) {
             $sValue = getString($value);
             if($sValue !== null) {
@@ -336,7 +336,7 @@ function printProtokolle($protokolle, $newLine = false) {
     $first = true;
     $count = 0;
     $lang = new clsLang();
-    echo '<table id="linkTable">';
+    echo '<table id="linkTable" class="fancy_table">';
 
     foreach($protokolle as $protokollObj => $value) {
         if($first) {

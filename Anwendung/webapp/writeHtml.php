@@ -412,7 +412,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
 
   echo '<form>
     <input type="hidden" name="protokollID" value="'. $protokoll->ID .'">
-    <table class="fancy_table"><tr><td>
+    <table><tr><td>
     <label for="Typ">Titel</label></td>
     <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
     <tr><td>
