@@ -464,7 +464,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '<tr><td><label for="Topic[' . $i . '][Beschreibung]">Beschreibung</label></td>
         <td><textarea name="Topic[' . $i . '][Beschreibung]">' . $value->Beschreibung . '</textarea></td></tr>';
       echo '<tr><td><label for="' . $i . '_Beschlossen">Beschlossen</label></td>
-        <td><input type="checkbox" click="ToggleRows('.$i.')" name="' . $i . '_Beschlossen" ' . $Beschlossen . '></tr>';
+        <td><input type="checkbox" onClick="ToggleRows('.$i.')" name="' . $i . '_Beschlossen" ' . $Beschlossen . '></tr>';
       echo '<tr class="toggleRow'.$i.' '.$class.'" style="' . $BVisibilty . '" false"><td><label for="Topic[' . $i . '][Beschluss]">Beschluss*</label></td>
         <td><textarea name="Topic[' . $i . '][Beschluss]">' . $value->Beschluss . '</textarea></td></tr>';
       echo '<tr class="toggleRow'.$i.' '.$class.'" style="' . $BVisibilty . '"><td><label for="Topic[' . $i . '][Dafuer]">Dafür</label></td>

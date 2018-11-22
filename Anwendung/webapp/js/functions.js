@@ -98,6 +98,7 @@ function DeleteLehrerGruppe(lehrerId,gruppeId){
 
 function ToggleRows(id){
   var rows = document.getElementsByClassName("toggleRow"+id);
+  console.log(rows);
   rows.forEach(row => {
     if(row.className.indexOf("opened")>= 0){
       console.log(row.classList);
