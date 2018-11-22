@@ -2,10 +2,12 @@
   TableFormatting();
   initSetVorauswahl();
   SubscribeCheckboxLabels();
+  setTimeout(SetHeader,1200000);
 })();
 
 var gruppen2Lehrer=[];
-var apiPath="http://fia63kaden.bplaced.net/pgotest/api.php";
+var special=false;
+var apiPath="http://fia63kaden.bplaced.net/api.php";
 
 function TableFormatting() {
   var table = document.getElementById("linkTable");
@@ -33,7 +35,7 @@ function SubscribeCheckboxLabels(){
 
 function initSetVorauswahl(){
   var sel = document.getElementsByName('Gruppe');
-  postAjax("http://fia63kaden.bplaced.net/pgotest/api.php",'action=getLehrerGruppe',function(data){
+  postAjax("http://fia63kaden.bplaced.net/api.php",'action=getLehrerGruppe',function(data){
     gruppen2Lehrer = JSON.parse(data); 
   });
   if(sel.length > 0){
@@ -107,8 +109,11 @@ function ToggleRows(id){
 }
 
 function SetHeader(){
-  var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0&amp;rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-  document.getElementById('jsn-pos-promo').getElementsByTagName('p')[0].innerHTML=iframe;
+  if(!special){
+    var iframe ='<iframe width="560" height="315" style="display: block; margin-left: auto; margin-right: auto;" src="https://www.youtube.com/embed/wbtJ60y1l4g?controls=0&amp;rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    document.getElementById('jsn-pos-promo').getElementsByTagName('p')[0].innerHTML=iframe;
+    special=true;
+  }
 }
 
 
