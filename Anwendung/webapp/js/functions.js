@@ -101,10 +101,9 @@ function DeleteLehrerGruppe(lehrerId,gruppeId){
 
 function ToggleRows(id){
   var rows = document.getElementsByClassName("toggleRow"+id);
-  console.log(rows);
   for (let i = 0; i < rows.length; i++) {
-    console.log(rows[i]);
-    
+      rows[i].classList.toggle("opened");
+      rows[i].classList.toggle("closed");
   }
 }
 

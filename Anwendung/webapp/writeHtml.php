@@ -305,7 +305,7 @@ function writeLehrerGruppeTable($gruppenLehrer){
   foreach ($gruppenLehrer as $key => $value) {
     $lehrer = GetLehrer($value->LehrerID);
     $gruppe = GetGruppe($value->GruppenID);
-    echo "<tr><td>".$lehrer->Vorname." ".$lehrer->Nachname."</td><td>".$gruppe->Name."</td></tr>";
+    echo "<tr><td>".$lehrer[0]->Nachname.", ".$lehrer[0]->Vorname."</td><td>".$gruppe[0]->Name."</td></tr>";
   }
   echo"</table>";
 }

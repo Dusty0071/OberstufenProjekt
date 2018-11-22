@@ -94,3 +94,9 @@ input[type=number] {
     position: relative;
     left: -5px;
 }
+tr[class^="toggleRow"].opened{
+    visibility:unset!important;
+}
+tr[class^="toggleRow"].closed{
+    visibility: collapse!important;
+}

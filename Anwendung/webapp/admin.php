@@ -40,6 +40,8 @@ $gruppen = GetGruppen();
 $lehrer = getAllLehrer();
 writeAdminForm($gruppen,$lehrer);
 
+$LehrerGruppen = GetLehrerGruppen();
+writeLehrerGruppeTable($LehrerGruppen);
 
 writeFoot();
 ?>
