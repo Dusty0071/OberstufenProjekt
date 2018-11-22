@@ -83,7 +83,7 @@ function wirteHead() {
                             </a>
                           </li>
                           <li class="last icon-star">
-                            <a onClick="SetHeader()">
+                            <a onClick="SetHeader()" style="cursor:pointer">
                             <span>
                               Sitemap	</span>
                             </a>
