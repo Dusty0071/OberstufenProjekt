@@ -405,6 +405,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
   }
 
   echo '<form action="/">
+  <input type="hidden" name="ID" value="'. $protokoll->ID .'">
     <table><tr><td>
     <label for="Typ">Titel</label></td>
     <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
@@ -475,6 +476,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
       echo '</table>';
       $i++;
     }
+    echo '<button type="button">Übernehmen</button><button type="button">PDF Drucken</button>';
   echo'</form>';
 
 }
