@@ -410,7 +410,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false) {
     }
   }
 
-  echo '<form>
+  echo '<form method="post">
     <input type="hidden" name="protokollID" value="'. $protokoll->ID .'">
     <table><tr><td>
     <label for="Typ">Titel</label></td>

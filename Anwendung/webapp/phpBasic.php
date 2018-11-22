@@ -21,11 +21,23 @@ class clsLang {
 class clsSettings {
     public $protokollID = "0";
     public $action = "";
+    public $Topic = [];
 
     function __construct() {
         foreach (get_object_vars($this) as $key => $value) {
             if(isset($_REQUEST[$key])) {
-                $this->$key = $_REQUEST[$key];
+                switch ($key) {
+                    case "Topic":
+                        foreach($_REQUEST[$key] as $tKey => $tValue) {
+                            $this->$key[count($this->$key)] = new Top((object) $tValue);
+                        }
+                        break;
+                    default:
+                        $this->$key = $_REQUEST[$key];
+                        break;
+
+                }
+                
             }
         }
     }

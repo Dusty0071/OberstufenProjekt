@@ -591,4 +591,34 @@ function SaveGruppe($gruppe){
     }
 }
 
+function saveTopic($topic, $protokollID) {
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if($topic->ID = 0) {
+            //Insert
+            $query ="INSERT INTO TOPs (Name, Beschreibung, Beschluss, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$topic->Name."','".$topic->Beschreibung."','".$topic->Beschluss."','".$topic->Dafuer."','".$topic->Dagegen."','".$topic->Enthalten."','".$protokollID."')";
+        } else {
+            //Update
+            $query ="UPDATE TOPs SET Name='".$topic->Name."', Beschreibung='".$topic->Beschreibung."', Beschluss='".$topic->Beschluss."', Dafuer='".$topic->Dafuer."', Dagegen='".$topic->Dagegen."', Enthalten='".$topic->Enthalten."', ProtokollID='".$protokollID."' WHERE ID = ".$topic->ID;  
+        }
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+        if($result = $mysqli->query($query)) {
+            echo '<p class="success-message">Topic "'.$topic->Name.'" gespeichert.</p><p>' . $query . '</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
 ?>
