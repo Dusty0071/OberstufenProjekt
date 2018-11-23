@@ -443,7 +443,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
     $moderatorCombos = [];
     $i = 0;
     while($i < 3) {
-      $moderatorCombos[$i] = '<tr><td>Moderator ' . ($i+1) . '</td><td><select name="Moderator[$i]"><option value="0">------</option>';
+      $moderatorCombos[$i] = '<tr><td>Moderator ' . ($i+1) . '</td><td><select name="Moderator[]"><option value="0">------</option>';
       $i++;
     }
     foreach($Lehrer as $key => $value) {

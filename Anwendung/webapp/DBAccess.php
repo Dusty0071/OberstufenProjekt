@@ -692,18 +692,19 @@ function saveProtokollLehrer($protokollLehrer) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
 
-        $query="SELECT * FROM protokollLehrer WHERE  ProtokollID='".$protokollLehrer->ProtokollID."' AND LehrerID='".$protokollLehrer->LehrerID."'";
+        $query="SELECT * FROM protokollLehrer WHERE ProtokollID=".$protokollLehrer->ProtokollID." AND LehrerID=".$protokollLehrer->LehrerID."";
 
         if($result = $mysqli->query($query)) {
         } else {
             echo 'ERROR at: ' . $query . '\n';
         }
-        if(Count($result->fetch_fields()) === 0) {
+
+        if($result->fetch_array() === null) {
             //Insert
-            $query ="INSERT INTO protokollLehrer (ProtokollID, LehrerID, istModerator, istProtokollant, istAnwesend) VALUES('".$protokollLehrer->ProtokollID."','".$protokollLehrer->v."','".$protokollLehrer->istModerator."','".$protokollLehrer->istProtokollant."','".$protokollLehrer->istAnwesend."','".$protokollLehrer->Enthalten."','".$protokollID."')";
+            $query ="INSERT INTO protokollLehrer (ProtokollID, LehrerID, istModerator, istProtokollant, istAnwesend) VALUES('".$protokollLehrer->ProtokollID."','".$protokollLehrer->LehrerID."',".intval($protokollLehrer->istModerator).",".intval($protokollLehrer->istProtokollant).",".intval($protokollLehrer->istAnwesend).")";
         } else {
             //Update
-            $query ="UPDATE protokollLehrer SET istModerator='".$protokollLehrer->istModerator."', istProtokollant='".$protokollLehrer->istProtokollant."', istAnwesend='".$protokollLehrer->istAnwesend."' WHERE  ProtokollID='".$protokollLehrer->ProtokollID."' AND LehrerID='".$protokollLehrer->LehrerID."'";  
+            $query ="UPDATE protokollLehrer SET istModerator=".intval($protokollLehrer->istModerator).", istProtokollant=".intval($protokollLehrer->istProtokollant).", istAnwesend=".intval($protokollLehrer->istAnwesend)." WHERE  ProtokollID=".$protokollLehrer->ProtokollID." AND LehrerID=".$protokollLehrer->LehrerID."";  
         }
 
         if($result = $mysqli->query($query)) {

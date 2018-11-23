@@ -17,7 +17,7 @@ switch($settings->action) {
         saveProtokoll($protokoll);
 
         foreach($settings->ProtokollLehrer as $key => $value) {
-            saveProtokollLehrer($settings->ProtokollLehrer);
+            saveProtokollLehrer($value);
         }
         
         foreach($settings->Topic as $key => $value) {
