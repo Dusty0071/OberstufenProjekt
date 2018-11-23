@@ -654,23 +654,25 @@ function saveTopic($topic, $protokollID) {
 }
 
 function saveProtokoll($protokoll) {
+    var_dump($protokoll);
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
 
         if($protokoll->ID === 0) {
             //Insert
-            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$protokoll->Name."','".$protokoll->Beschreibung."','".$protokoll->Beschluss."','".$protokoll->Dafuer."','".$protokoll->Dagegen."','".$protokoll->Enthalten."','".$protokollID."')";
+            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, LastEditUser, LastEditDate, CreateDate, GruppenID) VALUES('".$protokoll->Typ."','".$protokoll->Raum."','".$protokoll->KonferenzDate."','".$protokoll->LastEditUser."','".$protokoll->LastEditDate."','".$protokoll->CreateDate."','".$protokoll->GruppenID."')";
         } else {
             //Update
-            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format()."', Dafuer='".$protokoll->Dafuer."', Dagegen='".$protokoll->Dagegen."', Enthalten='".$protokoll->Enthalten."', ProtokollID='".$protokollID."' WHERE ID = ".$protokoll->ID;  
+            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format(MYSQLDateFormat)."', LastEditUser='".$protokoll->LastEditUser."', LastEditDate='".$protokoll->LastEditDate->format(MYSQLDateFormat)."', CreateDate='".$protokoll->CreateDate->format(MYSQLDateFormat)."', GruppenID='".$protokoll->GruppenID."' WHERE ID = ".$protokoll->ID;  
         }
 
         if ($mysqli->connect_errno) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Topic "'.$protokoll->Typ.'" gespeichert.</p>';
+            var_dump($result);
+            echo '<p class="success-message">Protokoll "'.$protokoll->Typ.'" gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 

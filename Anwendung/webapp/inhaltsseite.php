@@ -12,19 +12,14 @@ $emptyTop = false;
 
 switch($settings->action) {
     case "save":
-        echo 'Übernehmen';
-        $protokoll = new Top($settings);
+        $protokoll = new Protokoll((object) $settings);
         $protokoll->ID = $settings->protokollID;
         saveProtokoll($protokoll);
         foreach($settings->Topic as $key => $value) {
             saveTopic($value, $settings->protokollID);
         }
         break;
-    case "pdf":
-        echo 'PDF Drucken';
-        break;
     case "addTop":
-        echo 'Add Topic';
         $emptyTop = true;
         break;
     case "":
@@ -35,12 +30,12 @@ switch($settings->action) {
         break;
 }
 
-if($settings->protokollID !== 0) {
+if($settings->protokollID !== 0 && $settings->protokollID !== " ") {
     /* highlight_string("<?php\n\getProtokoll($settings->protokollID) =\n" . var_export(getProtokoll($settings->protokollID), true) . ";\n?>"); */
     writeProtokollForm(getProtokoll($settings->protokollID), false, false, $emptyTop);
 
 } else {
-    //TODO Neues Protokoll
+    writeProtokollForm(null, false, true, true);
 }
 
 writeFoot();

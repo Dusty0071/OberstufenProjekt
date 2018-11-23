@@ -6,6 +6,7 @@ define("DBName", "fia63kaden_Protokoll", true);
 define("DBPort", "", true);
 define("DateFormat", "d.m.Y H:i", true);
 define("HTMLDateFormat", "Y-m-d\TH:i", true);
+define("MYSQLDateFormat", "Y-m-d H:i:s", true);
 
 class clsLang { 
     public $ID = "Nummer";
@@ -29,7 +30,17 @@ class clsSettings {
     public $Enthalten = 0;
     public $Topic = [];
 
+    public $Typ = "";
+    public $Raum = "";
+    public $KonferenzDate; //DateTime
+    public $LastEditUser = "";
+    public $LastEditDate; //DateTime
+    public $CreateDate; //DateTime
+    public $ProtokollLehrer = []; //Array(ProtokollLehrer)
+    public $GruppenID = 0;
+
     function __construct() {
+        var_dump($_REQUEST);
         foreach (get_object_vars($this) as $key => $value) {
             if(isset($_REQUEST[$key])) {
                 switch ($key) {

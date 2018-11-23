@@ -401,10 +401,12 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
   $protokollant = null;
   $Moderatoren = [];
   $Gruppe = "";
+  $Topic = [];
 
 
 
   if($new) {
+    $protokoll = new Protokoll();
   } else {
     if($protokoll !== null) {
       $Topic = $protokoll->TOPs;
@@ -435,16 +437,32 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
         $Gruppe = ($value->ID === $protokoll->GruppenID) ? 'selected' : '';
         echo '<option value="' . $value->ID . '" ' . $Gruppe . '>' . $value->Name . '</option>';
       }
-  echo'</select></td></tr></table>
-    <div class="Lehrer">';
+  echo'</select></td></tr>';
+    $LehrerList = '<div class="Lehrer">';
+    $protokollantCombo = '<tr><td>Protokollant</td><td><select name="Protokollant"><option value="0">------</option>';
+    $moderatorCombos = [];
+    $i = 0;
+    while($i < 3) {
+      $moderatorCombos[$i] = '<tr><td>Moderator ' . ($i+1) . '</td><td><select name="Moderator[$i]"><option value="0">------</option>';
+      $i++;
+    }
     foreach($Lehrer as $key => $value) {
       $anwesend = "";
       foreach($protokoll->ProtokollLehrer as $pLKey => $pLValue) {
+        $pSelected = '';
+        $mSelected = [];
+        $i = 0;
+        while($i < 3) {
+          $mSelected[$i] = '';
+          $i++;
+        }
         if($value->ID === $pLValue->LehrerID) {
           if($pLValue->istProtokollant) {
             $protokollant = $value;
+            $pSelected = ' selected';
           }
-          if($pLValue->istProtokollant) {
+          if($pLValue->istModerator) {
+            $mSelected[sizeof($Moderatoren)] = ' selected';
             $Moderatoren[sizeof($Moderatoren)] = $value;
           }
           if($pLValue->istAnwesend) {
@@ -453,10 +471,27 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
           break;
         }
       }
-      echo '<div class="inline"><div><input class="lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
+      $i = 0;
+      while($i < 3) {
+        $moderatorCombos[$i] .= '<option value="' . $value->ID . '"' . $mSelected[$i] . '>' . $value->Nachname . ', ' . $value->Vorname . '</option>';
+        $i++;
+      }
+      $protokollantCombo .= '<option value="' . $value->ID . '"' . $pSelected . '>' . $value->Nachname . ', ' . $value->Vorname . '</option>';
+      $LehrerList .= '<div class="inline"><div><input class="lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
-      
-  echo'</div><h2>Themen</h2>';
+    $protokollantCombo .= '</select></td></tr>';
+    echo $protokollantCombo;
+
+    $i = 0;
+    while($i < 3) {
+      echo $moderatorCombos[$i] . '</select></td></tr>';
+      $i++;
+    }
+    echo '</table>';
+    $LehrerList .= '</div>';
+    
+    echo $LehrerList;
+  echo'<h2>Themen</h2>';
     $i = 0;
 
     foreach($Topic as $key => $value) {
@@ -489,7 +524,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
       echo '</table>';
       $i++;
     }
-    echo '<button type="submit" name="action" value="addTop">Thema Hinzufügen</button><button type="submit" name="action" value="save">Übernehmen</button><button type="submit" name="action" value="pdf">PDF Drucken</button>';
+    echo '<button type="submit" name="action" value="addTop">Thema Hinzufügen</button><button type="submit" name="action" value="save" style="float: right;">Übernehmen</button>';
   echo'</form>';
 
 }
