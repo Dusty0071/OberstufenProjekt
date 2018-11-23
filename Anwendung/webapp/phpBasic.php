@@ -40,7 +40,6 @@ class clsSettings {
     public $GruppenID = 0;
 
     function __construct() {
-        var_dump($_REQUEST);
         foreach (get_object_vars($this) as $key => $value) {
             if(isset($_REQUEST[$key])) {
                 switch ($key) {
@@ -49,10 +48,33 @@ class clsSettings {
                             $this->$key[count($this->$key)] = new Top((object) $tValue);
                         }
                         break;
+                    case "ProtokollLehrer":
+                        $lehrer = getAllLehrer();
+                        $i = 0;
+                        foreach($lehrer as $tKey => $tValue) {
+                            $this->$key[$i] = new ProtokollLehrer();
+                            $this->$key[$i]->LehrerID = $tValue->ID;
+                            $this->$key[$i]->ProtokollID = $_REQUEST['protokollID'];
+
+                            foreach ($_REQUEST[$key] as $aKey => $aValue) {
+                                if($aValue == $this->$key[$i]->LehrerID) {
+                                    $this->$key[$i]->istAnwesend = true;
+                                }
+                            }
+                            foreach ($_REQUEST['Moderator'] as $lKey => $lValue) {
+                                if($lValue == $this->$key[$i]->LehrerID) {
+                                    $this->$key[$i]->istModerator = true;
+                                }
+                            }
+                            if($_REQUEST['Protokollant'] == $this->$key[$i]->LehrerID) {
+                                $this->$key[$i]->istProtokollant = true;
+                            }
+                            $i++;
+                        }
+                        break;
                     default:
                         $this->$key = $_REQUEST[$key];
                         break;
-
                 }
                 
             }

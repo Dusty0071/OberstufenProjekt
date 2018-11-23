@@ -477,7 +477,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
         $i++;
       }
       $protokollantCombo .= '<option value="' . $value->ID . '"' . $pSelected . '>' . $value->Nachname . ', ' . $value->Vorname . '</option>';
-      $LehrerList .= '<div class="inline"><div><input class="lehrer-checkbox" type="checkbox" name="Lehrer" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
+      $LehrerList .= '<div class="inline"><div><input class="lehrer-checkbox" type="checkbox" name="ProtokollLehrer[]" value="' . $value->ID . '" ' . $anwesend . '>' . $value->Nachname . ', ' . $value->Vorname . '</div></div>';
     }
     $protokollantCombo .= '</select></td></tr>';
     echo $protokollantCombo;

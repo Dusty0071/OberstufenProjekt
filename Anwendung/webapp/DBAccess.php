@@ -654,7 +654,6 @@ function saveTopic($topic, $protokollID) {
 }
 
 function saveProtokoll($protokoll) {
-    var_dump($protokoll);
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
@@ -671,8 +670,43 @@ function saveProtokoll($protokoll) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            var_dump($result);
             echo '<p class="success-message">Protokoll "'.$protokoll->Typ.'" gespeichert.</p>';
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+
+        }
+
+    } catch(Exception $e) {
+        echo 'Unahndled Exception:\n' . $e;
+    } finally {
+        $mysqli->close();
+    }
+}
+
+function saveProtokollLehrer($protokollLehrer) {
+    try {
+        $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $query;
+
+        if ($mysqli->connect_errno) {
+            printf("Connect failed: %s\n", $mysqli->connect_error);
+        }
+
+        $query="SELECT * FROM protokollLehrer WHERE  ProtokollID='".$protokollLehrer->ProtokollID."' AND LehrerID='".$protokollLehrer->LehrerID."'";
+
+        if($result = $mysqli->query($query)) {
+        } else {
+            echo 'ERROR at: ' . $query . '\n';
+        }
+        if(Count($result->fetch_fields()) === 0) {
+            //Insert
+            $query ="INSERT INTO protokollLehrer (ProtokollID, LehrerID, istModerator, istProtokollant, istAnwesend) VALUES('".$protokollLehrer->ProtokollID."','".$protokollLehrer->v."','".$protokollLehrer->istModerator."','".$protokollLehrer->istProtokollant."','".$protokollLehrer->istAnwesend."','".$protokollLehrer->Enthalten."','".$protokollID."')";
+        } else {
+            //Update
+            $query ="UPDATE protokollLehrer SET istModerator='".$protokollLehrer->istModerator."', istProtokollant='".$protokollLehrer->istProtokollant."', istAnwesend='".$protokollLehrer->istAnwesend."' WHERE  ProtokollID='".$protokollLehrer->ProtokollID."' AND LehrerID='".$protokollLehrer->LehrerID."'";  
+        }
+
+        if($result = $mysqli->query($query)) {
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
