@@ -17,7 +17,7 @@ switch($settings->action) {
         $settings->protokollID = saveProtokoll($protokoll);
 
         foreach($settings->ProtokollLehrer as $key => $value) {
-            saveProtokollLehrer($value);
+            saveProtokollLehrer($value, $settings->protokollID);
         }
         
         foreach($settings->Topic as $key => $value) {
@@ -25,6 +25,17 @@ switch($settings->action) {
         }
         break;
     case "addTop":
+        $protokoll = new Protokoll((object) $settings);
+        $protokoll->ID = $settings->protokollID;
+        $settings->protokollID = saveProtokoll($protokoll);
+
+        foreach($settings->ProtokollLehrer as $key => $value) {
+            saveProtokollLehrer($value, $settings->protokollID);
+        }
+        
+        foreach($settings->Topic as $key => $value) {
+            saveTopic($value, $settings->protokollID);
+        }
         $emptyTop = true;
         break;
     case "":

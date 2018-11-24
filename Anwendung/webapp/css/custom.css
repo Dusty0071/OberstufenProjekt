@@ -65,15 +65,17 @@ input[type=number] {
     display: inline-block;
 }
 
-.delete-btn{
+.delete-btn {
     top: 2px;
     position: relative;
     left: -5px;
 }
-tr[class^="toggleRow"].opened{
-    visibility:unset!important;
+
+tr[class^="toggleRow"].opened {
+    visibility: unset!important;
 }
-tr[class^="toggleRow"].closed{
+
+tr[class^="toggleRow"].closed {
     visibility: collapse!important;
 }
 
@@ -83,14 +85,19 @@ tr[class^="toggleRow"].closed{
     width: 100%;
 }
 
-.fancy_table td, #fancy_table th {
+.fancy_table td,
+#fancy_table th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.fancy_table tr:nth-child(even){background-color: #f2f2f2;}
+.fancy_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-.fancy_table tr:hover {background-color: #ddd;}
+.fancy_table tr:hover {
+    background-color: #ddd;
+}
 
 .fancy_table th {
     padding-top: 12px;

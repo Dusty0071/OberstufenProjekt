@@ -50,11 +50,14 @@ class Protokoll {
     }
 
     public function printTable() {
+        $lang = new clsLang();
         echo '<tr class="clickable fancy_table">';
         foreach ($this as $key => $value) {
-            $sValue = getString($value);
-            if($sValue !== null) {
-                echo '<td>'. getString($value) . '</td>';
+            if($lang->$key) {
+                $sValue = getString($value);
+                if($sValue !== null) {
+                    echo '<td>'. getString($value) . '</td>';
+                }
             }
         }
         echo '</tr>';
@@ -212,6 +215,7 @@ function GetLehrerGruppen() {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -243,6 +247,7 @@ function GetGruppe($ID) {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -274,6 +279,7 @@ function GetGruppen() {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -305,6 +311,7 @@ function GetTops() {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -337,6 +344,7 @@ function GetProtokolle(){
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -394,6 +402,7 @@ function getProtokoll($ID) {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -453,6 +462,7 @@ function getAllLehrer() {
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -484,6 +494,7 @@ function GetLehrer($ID){
     try {
         //connect to Database
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
 
         //check connection
         if ($mysqli->connect_errno) {
@@ -514,6 +525,7 @@ function GetLehrer($ID){
 function SaveLehrer($lehrer){
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query;
 
         if($lehrer->ID > 0){
@@ -527,7 +539,7 @@ function SaveLehrer($lehrer){
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Lehrer gespeichert.</p>';
+            //echo '<p class="success-message">Lehrer gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -543,12 +555,13 @@ function SaveLehrer($lehrer){
 function SaveLehrerGruppe($lehrerGruppe){
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query ="INSERT INTO lehrerGruppen (LehrerID,GruppenID) VALUES(".$lehrerGruppe->LehrerID.",".$lehrerGruppe->GruppenID.")";
         if ($mysqli->connect_errno) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Zuordnung gespeichert.</p>';
+            //echo '<p class="success-message">Zuordnung gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
         }
@@ -578,6 +591,7 @@ function DELETE($query){
     $result=false;
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
            
         if ($mysqli->connect_errno) {
             $result=false;
@@ -597,6 +611,7 @@ function DELETE($query){
 function SaveGruppe($gruppe){
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query;
 
         if($lehrer->ID > 0){
@@ -610,7 +625,7 @@ function SaveGruppe($gruppe){
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Gruppe gespeichert.</p>';
+            //echo '<p class="success-message">Gruppe gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -626,6 +641,7 @@ function SaveGruppe($gruppe){
 function saveTopic($topic, $protokollID) {
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query;
 
         if($topic->ID == 0) {
@@ -640,7 +656,7 @@ function saveTopic($topic, $protokollID) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Topic "'.$topic->Name.'" gespeichert.</p>';
+            //echo '<p class="success-message">Topic "'.$topic->Name.'" gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
@@ -656,28 +672,32 @@ function saveTopic($topic, $protokollID) {
 function saveProtokoll($protokoll) {
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query;
 
         if($protokoll->ID == 0) {
             //Insert
-            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, LastEditUser, LastEditDate, CreateDate, GruppenID) VALUES('".$protokoll->Typ."','".$protokoll->Raum."','".$protokoll->KonferenzDate->format(MYSQLDateFormat)."','".$protokoll->LastEditUser."','".$protokoll->LastEditDate->format(MYSQLDateFormat)."','".$protokoll->CreateDate->format(MYSQLDateFormat)."',".$protokoll->GruppenID.")";
-            $ID = mysqli_insert_id($mysqli);
+            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, LastEditUser, LastEditDate, CreateDate, GruppenID) VALUES('".$protokoll->Typ."','".$protokoll->Raum."','".$protokoll->KonferenzDate->format(MYSQLDateFormat)."','".$protokoll->LastEditUser."','".date(MYSQLDateFormat)."','".date(MYSQLDateFormat)."',".$protokoll->GruppenID.")";
         } else {
             //Update
-            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format(MYSQLDateFormat)."', LastEditUser='".$protokoll->LastEditUser."', LastEditDate='".$protokoll->LastEditDate->format(MYSQLDateFormat)."', CreateDate='".$protokoll->CreateDate->format(MYSQLDateFormat)."', GruppenID=".$protokoll->GruppenID." WHERE ID = ".$protokoll->ID;  
-            $ID = $protokoll->ID;
+            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format(MYSQLDateFormat)."', LastEditUser='".$protokoll->LastEditUser."', LastEditDate='".date(MYSQLDateFormat)."', CreateDate='".$protokoll->CreateDate->format(MYSQLDateFormat)."', GruppenID=".$protokoll->GruppenID." WHERE ID = ".$protokoll->ID;  
         }
 
         if ($mysqli->connect_errno) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
         if($result = $mysqli->query($query)) {
-            echo '<p class="success-message">Protokoll "'.$protokoll->Typ.'" gespeichert.</p>';
+            //echo '<p class="success-message">Protokoll "'.$protokoll->Typ.'" gespeichert.</p>';
         } else {
             echo 'ERROR at: ' . $query . '\n';
 
         }
-    return $ID;
+        if($protokoll->ID == 0) {
+            return mysqli_insert_id($mysqli);
+        } else {
+            return $protokoll->ID;
+        }
+    
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {
@@ -685,16 +705,17 @@ function saveProtokoll($protokoll) {
     }
 }
 
-function saveProtokollLehrer($protokollLehrer) {
+function saveProtokollLehrer($protokollLehrer, $pID) {
     try {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
+        $mysqli->set_charset("utf8");
         $query;
 
         if ($mysqli->connect_errno) {
             printf("Connect failed: %s\n", $mysqli->connect_error);
         }
 
-        $query="SELECT * FROM protokollLehrer WHERE ProtokollID=".$protokollLehrer->ProtokollID." AND LehrerID=".$protokollLehrer->LehrerID."";
+        $query="SELECT * FROM protokollLehrer WHERE ProtokollID=".$pID." AND LehrerID=".$protokollLehrer->LehrerID."";
 
         if($result = $mysqli->query($query)) {
         } else {
@@ -703,10 +724,10 @@ function saveProtokollLehrer($protokollLehrer) {
 
         if($result->fetch_array() === null) {
             //Insert
-            $query ="INSERT INTO protokollLehrer (ProtokollID, LehrerID, istModerator, istProtokollant, istAnwesend) VALUES('".$protokollLehrer->ProtokollID."','".$protokollLehrer->LehrerID."',".intval($protokollLehrer->istModerator).",".intval($protokollLehrer->istProtokollant).",".intval($protokollLehrer->istAnwesend).")";
+            $query ="INSERT INTO protokollLehrer (ProtokollID, LehrerID, istModerator, istProtokollant, istAnwesend) VALUES('".$pID."','".$protokollLehrer->LehrerID."',".intval($protokollLehrer->istModerator).",".intval($protokollLehrer->istProtokollant).",".intval($protokollLehrer->istAnwesend).")";
         } else {
             //Update
-            $query ="UPDATE protokollLehrer SET istModerator=".intval($protokollLehrer->istModerator).", istProtokollant=".intval($protokollLehrer->istProtokollant).", istAnwesend=".intval($protokollLehrer->istAnwesend)." WHERE  ProtokollID=".$protokollLehrer->ProtokollID." AND LehrerID=".$protokollLehrer->LehrerID."";  
+            $query ="UPDATE protokollLehrer SET istModerator=".intval($protokollLehrer->istModerator).", istProtokollant=".intval($protokollLehrer->istProtokollant).", istAnwesend=".intval($protokollLehrer->istAnwesend)." WHERE  ProtokollID=".$pID." AND LehrerID=".$protokollLehrer->LehrerID."";  
         }
 
         if($result = $mysqli->query($query)) {

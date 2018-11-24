@@ -402,6 +402,7 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
   $Moderatoren = [];
   $Gruppe = "";
   $Topic = [];
+  $lang = new clsLang();
 
 
 
@@ -421,6 +422,9 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
   echo '<form method="post">
     <input type="hidden" name="protokollID" value="'. $protokoll->ID .'">
     <input type="hidden" name="ProtokollLehrer[]" value="0">
+    <input type="hidden" name="CreateDate" value="'. $protokoll->CreateDate->format(HTMLDateFormat).'">
+    <div style="float: right; color: gray;">' . $lang->CreateDate . ': '.$protokoll->CreateDate->format(DateFormat).'<br>
+    ' . $lang->LastEditDate . ': '.$protokoll->LastEditDate->format(DateFormat).'</div>
     <table><tr><td>
     <label for="Typ">Titel*</label></td>
     <td><input type="text" name="Typ" value="' . $protokoll->Typ . '" required></td></tr>

@@ -13,10 +13,8 @@ class clsLang {
     public $Typ = "Konferenz Typ";
     public $Raum = "Raum";
     public $KonferenzDate = "Konferenz Datum";
-    public $LastEditUser = "Zuletzt bearbeitet von";
     public $LastEditDate = "Änderungsdatum";
     public $CreateDate = "Erstellungsdatum";
-    public $GruppenID = "Gruppen ID";
 }
 
 class clsSettings {
