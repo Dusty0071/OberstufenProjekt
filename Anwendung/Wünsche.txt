@@ -1,3 +1,3 @@
 Gruppen wieder funktionieren
-Pfeil wieder richtig beim protokoll grid
+Cursor wieder richtig beim protokoll grid
 ProtokollLehrer, knopf für alle und keinen auswählen
