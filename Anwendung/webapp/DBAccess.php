@@ -628,12 +628,12 @@ function saveTopic($topic, $protokollID) {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
 
-        if($topic->ID === 0) {
+        if($topic->ID == 0) {
             //Insert
-            $query ="INSERT INTO TOPs (Name, Beschreibung, Beschluss, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$topic->Name."','".$topic->Beschreibung."','".$topic->Beschluss."','".$topic->Dafuer."','".$topic->Dagegen."','".$topic->Enthalten."','".$protokollID."')";
+            $query ="INSERT INTO TOPs (Name, Beschreibung, Beschluss, Dafuer, Dagegen, Enthalten, ProtokollID) VALUES('".$topic->Name."','".$topic->Beschreibung."','".$topic->Beschluss."',".intval($topic->Dafuer).",".intval($topic->Dagegen).",".intval($topic->Enthalten).",".intval($protokollID).")";
         } else {
             //Update
-            $query ="UPDATE TOPs SET Name='".$topic->Name."', Beschreibung='".$topic->Beschreibung."', Beschluss='".$topic->Beschluss."', Dafuer='".$topic->Dafuer."', Dagegen='".$topic->Dagegen."', Enthalten='".$topic->Enthalten."', ProtokollID='".$protokollID."' WHERE ID = ".$topic->ID;  
+            $query ="UPDATE TOPs SET Name='".$topic->Name."', Beschreibung='".$topic->Beschreibung."', Beschluss='".$topic->Beschluss."', Dafuer=".intval($topic->Dafuer).", Dagegen=".intval($topic->Dagegen).", Enthalten=".intval($topic->Enthalten).", ProtokollID=".intval($protokollID)." WHERE ID = ".intval($topic->ID);  
         }
 
         if ($mysqli->connect_errno) {
@@ -658,12 +658,14 @@ function saveProtokoll($protokoll) {
         $mysqli = new mysqli(DBAdress,DBUser,DBPW,DBName);
         $query;
 
-        if($protokoll->ID === 0) {
+        if($protokoll->ID == 0) {
             //Insert
-            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, LastEditUser, LastEditDate, CreateDate, GruppenID) VALUES('".$protokoll->Typ."','".$protokoll->Raum."','".$protokoll->KonferenzDate."','".$protokoll->LastEditUser."','".$protokoll->LastEditDate."','".$protokoll->CreateDate."','".$protokoll->GruppenID."')";
+            $query ="INSERT INTO Protokolle (Typ, Raum, KonferenzDate, LastEditUser, LastEditDate, CreateDate, GruppenID) VALUES('".$protokoll->Typ."','".$protokoll->Raum."','".$protokoll->KonferenzDate->format(MYSQLDateFormat)."','".$protokoll->LastEditUser."','".$protokoll->LastEditDate->format(MYSQLDateFormat)."','".$protokoll->CreateDate->format(MYSQLDateFormat)."',".$protokoll->GruppenID.")";
+            $ID = mysqli_insert_id($mysqli);
         } else {
             //Update
-            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format(MYSQLDateFormat)."', LastEditUser='".$protokoll->LastEditUser."', LastEditDate='".$protokoll->LastEditDate->format(MYSQLDateFormat)."', CreateDate='".$protokoll->CreateDate->format(MYSQLDateFormat)."', GruppenID='".$protokoll->GruppenID."' WHERE ID = ".$protokoll->ID;  
+            $query ="UPDATE Protokolle SET Typ='".$protokoll->Typ."', Raum='".$protokoll->Raum."', KonferenzDate='".$protokoll->KonferenzDate->format(MYSQLDateFormat)."', LastEditUser='".$protokoll->LastEditUser."', LastEditDate='".$protokoll->LastEditDate->format(MYSQLDateFormat)."', CreateDate='".$protokoll->CreateDate->format(MYSQLDateFormat)."', GruppenID=".$protokoll->GruppenID." WHERE ID = ".$protokoll->ID;  
+            $ID = $protokoll->ID;
         }
 
         if ($mysqli->connect_errno) {
@@ -675,7 +677,7 @@ function saveProtokoll($protokoll) {
             echo 'ERROR at: ' . $query . '\n';
 
         }
-
+    return $ID;
     } catch(Exception $e) {
         echo 'Unahndled Exception:\n' . $e;
     } finally {

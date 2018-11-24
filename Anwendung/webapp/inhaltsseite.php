@@ -14,7 +14,7 @@ switch($settings->action) {
     case "save":
         $protokoll = new Protokoll((object) $settings);
         $protokoll->ID = $settings->protokollID;
-        saveProtokoll($protokoll);
+        $settings->protokollID = saveProtokoll($protokoll);
 
         foreach($settings->ProtokollLehrer as $key => $value) {
             saveProtokollLehrer($value);

@@ -420,15 +420,16 @@ function writeProtokollForm($protokoll=null, $writeOnly = true, $new = false, $e
 
   echo '<form method="post">
     <input type="hidden" name="protokollID" value="'. $protokoll->ID .'">
+    <input type="hidden" name="ProtokollLehrer[]" value="0">
     <table><tr><td>
-    <label for="Typ">Titel</label></td>
-    <td><input type="text" name="Typ" value="' . $protokoll->Typ . '"></td></tr>
+    <label for="Typ">Titel*</label></td>
+    <td><input type="text" name="Typ" value="' . $protokoll->Typ . '" required></td></tr>
     <tr><td>
-    <label for="Raum">Raum</label></td>
-    <td><input type="text" name="Raum" value="' . $protokoll->Raum . '"></td></tr>
+    <label for="Raum">Raum*</label></td>
+    <td><input type="text" name="Raum" value="' . $protokoll->Raum . '" required></td></tr>
     <tr><td>
-    <label for="KonferenzDate">Konferenzdatum</label></td>
-    <td><input type="datetime-local" name="KonferenzDate" value="' . $protokoll->KonferenzDate->format(HTMLDateFormat) . '"></td></tr>
+    <label for="KonferenzDate*">Konferenzdatum</label></td>
+    <td><input type="datetime-local" name="KonferenzDate" value="' . $protokoll->KonferenzDate->format(HTMLDateFormat) . '" required></td></tr>
     <tr><td>
     <label for="Gruppe">Gruppe</label></td>
     <td><select name="Gruppe">';
