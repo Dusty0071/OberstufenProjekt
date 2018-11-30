@@ -1,23 +1,22 @@
 ### Lars
-Analyse
-Zeitplaplanung
-Was wurde getestet
+- Analyse
+- Zeitplaplanung
+- Was wurde getestet
 
 ### Oliver
-Einleitung
-Inhaltsverzeichniss
-Die Aufgabe
-ERD
+- Einleitung
+- Inhaltsverzeichniss
+- Die Aufgabe
+- ERD
 
 ### Gede
-Soll-Ist-Vergleich
-Aktivitätsdiagramm
-Sequenzdiagramm
-Kostenplan
+- Soll-Ist-Vergleich
+- Aktivitätsdiagramm
+- Sequenzdiagramm
+- Kostenplan
 
 
 ### Pascal
-Verwendete Werkzeuge
-
-Fazit
+- Verwendete Werkzeuge
+- Fazit
 
