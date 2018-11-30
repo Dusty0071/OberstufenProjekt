@@ -1,4 +1,4 @@
-### Lars
+### Detlef
 - Analyse
 - Zeitplaplanung
 - Was wurde getestet
@@ -9,7 +9,7 @@
 - Die Aufgabe
 - ERD
 
-### Gede
+### GD
 - Soll-Ist-Vergleich
 - Aktivitätsdiagramm
 - Sequenzdiagramm
