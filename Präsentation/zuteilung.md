@@ -7,7 +7,7 @@
 
 
 ### Oliver
-- Einleitung
+- Einleitung  (Ressourcen erwähnen, aufteilung der Gruppe)
 - Inhaltsverzeichniss
 - Die Aufgabe  ->->->(interview mit Kunden erwähnen.. -> ausführlich beschreiben, damit ich später den soll )  
 - ERD
