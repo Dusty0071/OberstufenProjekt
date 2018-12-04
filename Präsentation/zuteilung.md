@@ -1,7 +1,8 @@
 # Einteilung:
 ### Detlef
 - Analyse
-- Zeitplaplanung
+- Zeitplaplanung     
+Info: (gesamt 109 Stunden geplant, davon sind 2 Stunden Puffer, 106 haben wir gesamt gebraucht bis zum heutigen stand, 1 stunde früher fertig)
 - Was wurde getestet
 
 ### Oliver
